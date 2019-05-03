@@ -21,18 +21,19 @@
                 margin: 0px;
                 padding: 0px;
                 position: absolute;
-                border: 1px solid black;
                 display:block;
             }
             #div1{
                 top:0px;
                 left:0px;
                 z-index: 10;
+                border: 1px solid black;
             }
             #div2{
                 top:115px;
                 left:0px;
                 z-index: 5;
+                border: 1px solid black;
             }
 
         </style>
@@ -80,7 +81,7 @@
                 <div>
                     <ul>
                         <li>
-                            <select id="select-id">
+                            <select id="select-div">
                                 <option value="null">
                                     Select DIV
                                 </option>
@@ -167,6 +168,8 @@
             div1 = document.getElementById('div1');
             div2 = document.getElementById('div2');
 
+            console.log(div2.style.borderColor);
+
             //input 
             borderColorTxt = document.getElementById('bcolor');
             backgrandColorTxt = document.getElementById('backcolor');
@@ -235,100 +238,112 @@
 
             function moveUp(elem,moveAmmount)
             {
-                var thisElem;
-                var thisTopOff = 0;
-
-                if(elem instanceof Element)
+                if(elem != null)
                 {
-                    thisElem = elem;
-                }
-                else
-                {
-                    thisElem = document.getElementById(elem);
-                } 
+                    var thisElem;
+                    var thisTopOff = 0;
 
-                thisTopOff = thisElem.offsetTop;
+                    if(elem instanceof Element)
+                    {
+                        thisElem = elem;
+                    }
+                    else
+                    {
+                        thisElem = document.getElementById(elem);
+                    } 
 
-                thisElem.style.top = (thisTopOff - moveAmmount) + "px";
+                    thisTopOff = thisElem.offsetTop;
 
-                if(!isBound(thisElem))
-                {
-                    thisElem.style.top = thisTopOff + "px";
+                    thisElem.style.top = (thisTopOff - moveAmmount) + "px";
+
+                    if(!isBound(thisElem))
+                    {
+                        thisElem.style.top = thisTopOff + "px";
+                    }
                 }
 
             }
 
             function moveDown(elem,moveAmmount)
             {
-                var thisElem;
-                var thisBottomOff = 0;
-
-                if(elem instanceof Element)
+                if(elem != null)
                 {
-                    thisElem = elem;
-                }
-                else
-                {
-                    thisElem = document.getElementById(elem);
-                } 
+                    var thisElem;
+                    var thisBottomOff = 0;
 
-                thisBottomOff = thisElem.offsetTop;
+                    if(elem instanceof Element)
+                    {
+                        thisElem = elem;
+                    }
+                    else
+                    {
+                        thisElem = document.getElementById(elem);
+                    } 
 
-                thisElem.style.top = (thisBottomOff + moveAmmount) + "px";
+                    thisBottomOff = thisElem.offsetTop;
 
-                if(!isBound(thisElem))
-                {
-                    thisElem.style.top = thisBottomOff + "px";
+                    thisElem.style.top = (thisBottomOff + moveAmmount) + "px";
+
+                    if(!isBound(thisElem))
+                    {
+                        thisElem.style.top = thisBottomOff + "px";
+                    }
                 }
 
             }
 
             function moveLeft(elem,moveAmmount)
             {
-                var thisElem;
-                var thisLeftOff = 0;
-
-                if(elem instanceof Element)
+                if(elem != null)
                 {
-                    thisElem = elem;
-                }
-                else
-                {
-                    thisElem = document.getElementById(elem);
-                } 
+                    var thisElem;
+                    var thisLeftOff = 0;
 
-                thisLeftOff = thisElem.offsetLeft;
+                    if(elem instanceof Element)
+                    {
+                        thisElem = elem;
+                    }
+                    else
+                    {
+                        thisElem = document.getElementById(elem);
+                    } 
 
-                thisElem.style.left = (thisLeftOff - moveAmmount) + "px";
+                    thisLeftOff = thisElem.offsetLeft;
 
-                if(!isBound(thisElem))
-                {
-                    thisElem.style.left = thisLeftOff + "px";
+                    thisElem.style.left = (thisLeftOff - moveAmmount) + "px";
+
+                    if(!isBound(thisElem))
+                    {
+                        thisElem.style.left = thisLeftOff + "px";
+                    }
                 }
 
             }
 
             function moveRight(elem,moveAmmount)
             {
-                var thisElem;
-                var thisRightOff = 0;
-
-                if(elem instanceof Element)
+                if(elem != null)
                 {
-                    thisElem = elem;
-                }
-                else
-                {
-                    thisElem = document.getElementById(elem);
-                } 
+                    var thisElem;
+                    var thisRightOff = 0;
 
-                thisRightOff = thisElem.offsetLeft;
+                    if(elem instanceof Element)
+                    {
+                        thisElem = elem;
+                    }
+                    else
+                    {
+                        thisElem = document.getElementById(elem);
+                    } 
 
-                thisElem.style.left = (thisRightOff + moveAmmount) + "px";
+                    thisRightOff = thisElem.offsetLeft;
 
-                if(!isBound(thisElem))
-                {
-                    thisElem.style.left = thisRightOff + "px";
+                    thisElem.style.left = (thisRightOff + moveAmmount) + "px";
+
+                    if(!isBound(thisElem))
+                    {
+                        thisElem.style.left = thisRightOff + "px";
+                    }
                 }
 
             }
@@ -387,21 +402,39 @@
                 return bound;
             }
 
+            function getSelectedDiv()
+            {   
+                if(divSelect.value != 'null')
+                {
+                    return document.getElementById(divSelect.value);
+                }
+
+                return null;
+            }
+
 
             upBtn.onclick = function(){
-                moveUp('div2',1);
+                moveUp(getSelectedDiv(),1);
             };
 
             downBtn.onclick = function(){
-                moveDown('div2',1);
+                moveDown(getSelectedDiv(),1);
             };
 
             leftBtn.onclick = function(){
-                moveLeft('div2',1);
+                moveLeft(getSelectedDiv(),1);
             };
 
             rightBtn.onclick = function(){
-                moveRight('div2',1);
+                moveRight(getSelectedDiv(),1);
+            };
+
+            divSelect.onchange = function(){
+                if(this.value != 'null')
+                {
+                    borderColorTxt.text = document.getElementById('div1').style.borderColor;
+                    console.log(document.getElementById('div1').style.borderColor);
+                }
             };
 
 
