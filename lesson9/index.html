@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+
+<html lang='en' >
+    <head>
+        <meta charset='utf-8' >
+        <title>test </title>
+        <style type="text/css">
+            ul{
+                list-style-type: none;
+            }
+            .div-canvas{
+                width: 1000px;
+                height: 550px;
+                overflow: hidden;
+                border: 1px black solid;
+                position: relative;
+            }
+            #div1,#div2{
+                width: 200px;
+                height: 100px;
+                margin: 0px;
+                padding: 0px;
+                position: absolute;
+                border: 1px solid black;
+                display:block;
+            }
+            #div1{
+                top:0px;
+                left:0px;
+                z-index: 10;
+            }
+            #div2{
+                top:115px;
+                left:0px;
+                z-index: 5;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>
+                assignment title
+            </li>
+            <li>
+                <div class="div-canvas">
+                    <div id="div1"></div>
+                    <div id="div2"></div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <ul>
+                        <li>
+                            Update both div 
+                        </li>                        
+                    </ul>
+                    <ul>
+                        <li>
+                            Height
+                        </li>
+                        <li>
+                            <input type="text" id="high" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            width
+                        </li>
+                        <li>
+                            <input type="text" id="width" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="button" value="Change Class" id="changeClassBtn" />
+                        </li>
+                    </ul> 
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <select id="select-id">
+                                <option value="null">
+                                    Select DIV
+                                </option>
+                                <option value="div1">
+                                    DIV1
+                                </option>
+                                <option value="div2">
+                                    DIV2
+                                </option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            border color
+                        </li>
+                        <li>
+                            <input type="text" id="bcolor" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            backgrand color
+                        </li>
+                        <li>
+                            <input type="text" id="backcolor" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="button" value="Change Div" id="changeDivBtn" />
+                        </li>
+                    </ul>                    
+                </div>
+                <div>
+                    Move the currently selected div
+                    <ul>
+                        <li>
+
+                        </li>
+                        <li>
+                            <input type="button" value="up" id="upBtn" />
+                        </li>
+                        <li>
+                            
+                        </li>                        
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="button" value="left" id="leftBtn" />
+                        </li>
+                        <li>
+                            
+                        </li>
+                        <li>
+                            <input type="button" value="right" id="rightBtn" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                        
+                        </li>
+                        <li>
+                            <input type="button" value="down" id="downBtn" />
+                        </li>
+                        <li>
+                            
+                        </li>
+                    </ul>                    
+                </div>
+            </li>
+        </ul>
+
+        <script type='text/javascript' >
+            //variables
+
+            //bounderies
+            var topBound = 0;
+            var leftBound = 0;
+            var bottomBound = 548; //border width
+            var rightBound = 998;
+
+            //changing DIV
+            div1 = document.getElementById('div1');
+            div2 = document.getElementById('div2');
+
+            //input 
+            borderColorTxt = document.getElementById('bcolor');
+            backgrandColorTxt = document.getElementById('backcolor');
+            highTxt = document.getElementById('high');
+            widthTxt = document.getElementById('width');
+
+            //select
+            divSelect = document.getElementById('select-div');
+
+            //buttons
+            downBtn = document.getElementById('downBtn');
+            upBtn = document.getElementById('upBtn');
+            leftBtn = document.getElementById('leftBtn');
+            rightBtn = document.getElementById('rightBtn');
+            changeClassBtn = document.getElementById('changeClassBtn');
+            changeDivBtn = document.getElementById('changeDivBtn');
+
+            function getHigh(elem)
+            {
+                if(elem instanceof Element)
+                {
+                    return elem.clientHeight;
+                }
+                else
+                {
+                    return document.getElementById(elem).clientHeight;
+                }
+            }
+
+            function getWide(elem)
+            {
+                if(elem instanceof Element)
+                {
+                    return elem.clientWidth;
+                }
+                else
+                {
+                    return document.getElementById(elem).clientWidth;
+                }
+            }
+
+
+            function setWide(elem,newWidth)
+            {
+                if(elem instanceof Element)
+                {
+                    elem.style.width = newWidth + 'px';
+                }
+                else
+                {
+                    document.getElementById(elem).style.width = newWidth + 'px';
+                }
+            }
+
+            function setHigh(elem,newHigh)
+            {
+                if(elem instanceof Element)
+                {
+                    elem.style.height = newHigh + 'px';
+                }
+                else
+                {
+                    document.getElementById(elem).style.height = newHigh + 'px';
+                }
+            }
+
+            function moveUp(elem,moveAmmount)
+            {
+                var thisElem;
+                var thisTopOff = 0;
+
+                if(elem instanceof Element)
+                {
+                    thisElem = elem;
+                }
+                else
+                {
+                    thisElem = document.getElementById(elem);
+                } 
+
+                thisTopOff = thisElem.offsetTop;
+
+                thisElem.style.top = (thisTopOff - moveAmmount) + "px";
+
+                if(!isBound(thisElem))
+                {
+                    thisElem.style.top = thisTopOff + "px";
+                }
+
+            }
+
+            function moveDown(elem,moveAmmount)
+            {
+                var thisElem;
+                var thisBottomOff = 0;
+
+                if(elem instanceof Element)
+                {
+                    thisElem = elem;
+                }
+                else
+                {
+                    thisElem = document.getElementById(elem);
+                } 
+
+                thisBottomOff = thisElem.offsetTop;
+
+                thisElem.style.top = (thisBottomOff + moveAmmount) + "px";
+
+                if(!isBound(thisElem))
+                {
+                    thisElem.style.top = thisBottomOff + "px";
+                }
+
+            }
+
+            function moveLeft(elem,moveAmmount)
+            {
+                var thisElem;
+                var thisLeftOff = 0;
+
+                if(elem instanceof Element)
+                {
+                    thisElem = elem;
+                }
+                else
+                {
+                    thisElem = document.getElementById(elem);
+                } 
+
+                thisLeftOff = thisElem.offsetLeft;
+
+                thisElem.style.left = (thisLeftOff - moveAmmount) + "px";
+
+                if(!isBound(thisElem))
+                {
+                    thisElem.style.left = thisLeftOff + "px";
+                }
+
+            }
+
+            function moveRight(elem,moveAmmount)
+            {
+                var thisElem;
+                var thisRightOff = 0;
+
+                if(elem instanceof Element)
+                {
+                    thisElem = elem;
+                }
+                else
+                {
+                    thisElem = document.getElementById(elem);
+                } 
+
+                thisRightOff = thisElem.offsetLeft;
+
+                thisElem.style.left = (thisRightOff + moveAmmount) + "px";
+
+                if(!isBound(thisElem))
+                {
+                    thisElem.style.left = thisRightOff + "px";
+                }
+
+            }
+
+            function isBound(elem)
+            {
+                var thisElem;
+                var thisTop = 0;
+                var thisBottom = 0;
+                var thisLeft = 0;
+                var thisRight = 0;
+                var thisWidth = 0;
+                var thisHeight = 0;
+                var isTop = false;
+                var isLeft = false;
+                var isRight = false;
+                var isBottom = false;
+                var bound = false;
+
+                if(elem instanceof Element)
+                {
+                    thisElem = elem;
+                }
+                else
+                {
+                    thisElem = document.getElementById(elem);
+                } 
+
+                //width and height can be offsets need to test the 
+                //bound setting as with the padding
+
+                thisTop = thisElem.offsetTop;
+                thisLeft = thisElem.offsetLeft;
+                thisWidth = thisElem.clientWidth;
+                thisHeight = thisElem.clientHeight;
+                thisRight = thisLeft + thisWidth;
+                thisBottom = thisTop + thisHeight;
+
+                //compare top
+                isTop = (topBound <= thisTop) ? true : false;
+
+                //compare left
+                isLeft = (leftBound <= thisLeft) ? true : false;
+
+                //compare right
+                isRight = (rightBound >= thisRight) ? true : false;
+
+                //compare bottom
+                isBottom = (bottomBound >= thisBottom) ? true : false;
+
+                if(isTop && isLeft && isRight && isBottom)
+                {
+                    bound = true;
+                }
+
+                return bound;
+            }
+
+
+            upBtn.onclick = function(){
+                moveUp('div2',1);
+            };
+
+            downBtn.onclick = function(){
+                moveDown('div2',1);
+            };
+
+            leftBtn.onclick = function(){
+                moveLeft('div2',1);
+            };
+
+            rightBtn.onclick = function(){
+                moveRight('div2',1);
+            };
+
+
+        </script>
+    </body>
+</html>
+
+
