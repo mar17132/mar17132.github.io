@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE HTML>
+
+<html lang="en" >
+    <head>
+	<meta charset="utf-8" />
+        <title>CIT 261 Assignments</title>
+        <style type="text/css">
+            ul{
+                list-style-type:none;
+            }
+            .div-canvas{
+                width: 1000px;
+                height: 550px;
+                overflow: hidden;
+                border: 1px black solid;
+            }            
+            #div1,#div2{
+                width: 200px;
+                height: 100px;
+                position: relative;
+                border: 1px black solid;
+                display: block;
+            }
+            
+            #div1{
+                top: 0px;
+                left: 0px;
+                z-index: 10;
+            }
+            
+             #div2{
+                top: 5px;
+                left: 0px;
+                z-index: 5;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>
+                Manipulating CSS Class Properties Using JavaScript
+            </li>
+            <li>
+                <div class="div-canvas" >
+                    <div id="div1" ></div>
+                    <div id="div2" ></div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <ul>
+                        <li>
+                            <select id="select-div">
+                                <option value="null">
+                                    Select DIV
+                                </option>
+                                <option value="div1">
+                                    DIV1
+                                </option>
+                                <option value="div2">
+                                    DIV2
+                                </option>
+                            </select>
+                        </li>
+                        <li>
+                            Border Color
+                        </li>
+                        <li>
+                            <input type="text" id="bcolor"/>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Hight
+                        </li>
+                        <li>
+                            <input type="text" id="high"/>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Width
+                        </li>
+                        <li>
+                            <input type="text" id="width"/>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="button" value="Change" id="changeBtn" />
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+        <script type="text/javascript" >
+            
+            var changeBtn = document.getElementById('changeBtn');
+            var withTxt = document.getElementById('width');
+            var highTxt = document.getElementById('high');
+            var bcolor = document.getElementById('bcolor');
+            var selectDiv = document.getElementById('select-div');
+            var test =document.getElementById('div1');
+            //highTxt.value = test.style.height = '400px'; 
+            
+            selectDiv.onchange = function(){
+                console.log(this.value);
+                if(this.value != "null")
+                {
+                    highTxt.value = document.getElementById(this.value).clientHeight;    
+                }
+            };
+
+        </script>
+    </body>
+</html>
