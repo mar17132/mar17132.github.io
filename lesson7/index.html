@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+
+<html lang='en' >
+    <head>
+        <meta charset='utf-8' >
+        <title>
+          Manipulating CSS Class Properties Using JavaScript
+        </title>
+        <link href="styles/lesson7.css" rel="stylesheet" />
+        <style type="text/css">
+
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li class='assTitle'>
+                <h2>
+                    Manipulating CSS Class Properties Using JavaScript
+                </h2>
+            </li>
+            <li class="liRow">
+                <div class="div-canvas">
+                    <div id="div1" class="default-size div1-class"></div>
+                    <div id="div2" class="default-size div2-class"></div>
+                </div>
+            </li>
+            <li class="liRow">
+                <div class="controls">
+                    <div>
+                        Update class property for tags. <br/><br/>
+                        Current Height <span id="highSpan" ></span>
+                        and Width <span id="widthSpan"></span>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <input  type="radio" checked='checked'
+                            name="divSize" value="default-size" />
+                            <span>default</span>
+                        </li>
+                        <li>
+                            <input value="x2-bigger" type="radio" name="divSize" />
+                            <span>2X</span>
+                        </li>
+                        <li>
+                            <input value="x3-bigger" type="radio" name="divSize" />
+                            <span>3X</span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="button" value="Change Class" id="changeClassBtn" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="controls">
+                    <span>
+                        Update class property values.
+                    </span>
+                    <br/>
+                    <br/>
+                    <ul>
+                        <li>
+                            <select id="select-div">
+                                <option value="null">
+                                    Select DIV
+                                </option>
+                                <option value="div1">
+                                    DIV1
+                                </option>
+                                <option value="div2">
+                                    DIV2
+                                </option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            border color
+                        </li>
+                        <li>
+                            <input type="text" id="bcolor" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            backgrand color
+                        </li>
+                        <li>
+                            <input type="text" id="backcolor" />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <input type="button" value="Change Div" id="changeDivBtn" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="controls">
+                    <span>
+                        Move the currently selected div <br/>
+                        By change the CSS property of the Tag<br/>
+                    </span>
+                    <br/>
+                    <ul>
+
+                        <li >
+                            <input type="button" value="up" id="upBtn" />
+                        </li>
+
+                        <li class="move-btn-row">
+                            <input type="button" value="left" id="leftBtn" />
+                        </li>
+                        <li class="move-btn-row">
+                            <input type="button" value="right" id="rightBtn" />
+                        </li>
+                        <li >
+                            <input type="button" value="down" id="downBtn" />
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+        <script src="scripts/lesson7.js" type="text/javascript"></script>
+
+        <script type='text/javascript' >
+        </script>
+    </body>
+</html>
+
+
