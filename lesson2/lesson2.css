@@ -1,0 +1,65 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+}
+.assTitle{
+    text-align: center;
+
+}
+.controls{
+    margin-top: 25px;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.move-btn-row{
+    display: inline-block;
+}
+.liRow{
+    display: inline-block;
+    padding: 25px;
+}
+.div-canvas{
+    width: 1000px;
+    height: 550px;
+    overflow: hidden;
+    border: 1px black solid;
+    position: relative;
+}
+.default-size{
+    width: 200px;
+    height: 100px;
+}
+.x2-bigger{
+    width: 400px;
+    height: 200px;
+}
+.x3-bigger{
+    width: 600px;
+    height: 300px;
+}
+#div1,#div2{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display:block;
+    border-width: 1px;
+    border-style: solid;
+}
+.div1-class{
+    top:0px;
+    left:0px;
+    z-index: 10;
+    border-color: black;
+    background-color: transparent;
+}
+.div2-class{
+    top:115px;
+    left:0px;
+    z-index: 5;
+    border-color: black;
+    background-color: transparent;
+}
