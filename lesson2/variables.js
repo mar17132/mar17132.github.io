@@ -1,5 +1,8 @@
 //variables
 
+var obj1 = null;
+var obj2 = null;
+
 //bounderies
 var bounderiesObj = {
     top:0,
@@ -9,16 +12,17 @@ var bounderiesObj = {
 };
 
 //changing DIV
-div1 = document.getElementById('div1');
-div2 = document.getElementById('div2');
+var div1 = document.getElementById('div1');
+var div2 = document.getElementById('div2');
 
 //select
-divSelect = document.getElementById('select-div');
+var divSelect = document.getElementById('select-div');
 
 //buttons
-downBtn = document.getElementById('downBtn');
-upBtn = document.getElementById('upBtn');
-leftBtn = document.getElementById('leftBtn');
-rightBtn = document.getElementById('rightBtn');
-radioSizeBtn = document.getElementsByName('divSize');
+var downBtn = document.getElementById('downBtn');
+var upBtn = document.getElementById('upBtn');
+var leftBtn = document.getElementById('leftBtn');
+var rightBtn = document.getElementById('rightBtn');
+
+
 
