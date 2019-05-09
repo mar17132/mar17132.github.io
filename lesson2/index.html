@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 
 <html lang='en' >
@@ -18,13 +19,19 @@
             </h2>
             </li>
             <li class="liRow">
-            <div class="div-canvas">
-            <div id="div1" class="default-size div1-class"></div>
-            <div id="div2" class="default-size div2-class"></div>
-            </div>
+                <div class="div-canvas">
+                    <div id="div1" class="default-size div1-class"></div>
+                    <div id="div2" class="default-size div2-class"></div>
+                </div>
             </li>
             <li class="liRow">
                 <div class="controls">
+                        <span>
+                            Onload of the page two object were
+                            created out of the two div elements
+                            Move the currently selected div <br/>
+                        </span>
+                        <br/><br/>
                     <select id="select-div">
                         <option value="null">
                             Select DIV
@@ -36,26 +43,42 @@
                             DIV2
                         </option>
                     </select>
-                    <span>
-                        Move the currently selected div <br/>
-                        By change the CSS property of the Tag<br/>
-                    </span>
-
                     <br/>
-                    <ul>
-                        <li >
-                            <input type="button" value="up" id="upBtn" />
-                        </li>
-                        <li class="move-btn-row">
-                            <input type="button" value="left" id="leftBtn" />
-                        </li>
-                        <li class="move-btn-row">
-                            <input type="button" value="right" id="rightBtn" />
-                        </li>
-                        <li >
-                            <input type="button" value="down" id="downBtn" />
-                        </li>
-                    </ul>
+                    <div class="div-btn-move">
+                        <ul class="row-move-button">
+                            <li class="empty-li-button">
+
+                            </li>
+                            <li class="cell-li-button">
+                                <input type="button" value="up" id="upBtn" />
+                            </li>
+                            <li class="empty-li-button">
+
+                            </li>
+                        </ul>
+                        <ul class="row-move-button">
+                            <li class="cell-li-button">
+                                <input type="button" value="left" id="leftBtn" />
+                            </li>
+                            <li class="empty-li-button">
+
+                            </li>
+                            <li class="cell-li-button">
+                                <input type="button" value="right" id="rightBtn" />
+                            </li>
+                        </ul>
+                        <ul class="row-move-button">
+                            <li class="empty-li-button">
+
+                            </li>
+                            <li class="cell-li-button">
+                                <input type="button" value="down" id="downBtn" />
+                            </li>
+                            <li class="empty-li-button">
+
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </li>
         </ul>
