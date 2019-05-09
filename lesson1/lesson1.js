@@ -1,6 +1,7 @@
 
 
 
+
 function getSelectedDiv()
 {
     var returnVal;
@@ -66,7 +67,8 @@ function setCSSPropVal(cssSelector,cssProp,cssVal)
 
 function clearInput()
 {
-
+    borderColorTxt.value = "";
+    backColorTxt.value = "";
 }
 
 function loadInputs()
@@ -82,6 +84,39 @@ function removeClassList(elem,removeClass)
 function addClassList(elem,newClass)
 {
     elem.classList.add(newClass);
+}
+
+function addBackColor(colorArray)
+{
+    if(Array.isArray(colorArray))
+    {
+        for(j = 0; j < colorArray.length; j++)
+        {
+            elemArray[j].style.backgroundColor = colorArray[j];
+        }
+    }
+    else
+    {
+        elemArray[0].style.backgroundColor = colorArray;
+    }
+}
+
+function addBorderColor(colorArray)
+{
+    if(Array.isArray(colorArray))
+    {
+        var l = 0;
+        
+        while(colorArray[l])
+        {
+            elemArray[l].style.borderColor = colorArray[l];
+            l++;
+        }
+    }
+    else
+    {
+        elemArray[0].style.borderColor = colorArray;
+    }
 }
 
 //Buttons
@@ -101,6 +136,36 @@ rightBtn.onclick = function(){
     moveRight(getSelectedDiv(),1);
 };
 
+changeColorBtn.onclick = function(){
+    var borderColorVal = borderColorTxt.value;
+    var backColorVal = backColorTxt.value;
+    
+    if(borderColorVal != '')
+    {
+        if(borderColorVal.includes(','))
+        {
+            addBorderColor(borderColorVal.split(','));
+        }
+        else
+        {
+            addBorderColor(borderColorVal);
+        }
+    }
+    
+    if(backColorVal != '')
+    {
+        if(backColorVal.includes(','))
+        {
+            addBackColor(backColorVal.split(','));
+        }
+        else
+        {
+            addBackColor(backColorVal);
+        }
+    }
+    
+    clearInput();
+};
 
 
 window.onload = function(){
