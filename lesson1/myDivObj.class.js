@@ -1,4 +1,5 @@
 
+
 function getHigh(elem)
 {
     if(elem instanceof Element)
