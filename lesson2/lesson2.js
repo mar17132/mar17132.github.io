@@ -1,11 +1,12 @@
 
 
 
+
 function getSelectedDiv()
 {
     if(divSelect.value != 'null')
     {
-        return document.getElementById(divSelect.value);
+        return divSelect.value;
     }
 
     return null;
@@ -64,7 +65,7 @@ function clearInput()
 
 function loadInputs()
 {
-
+    divSelect.selectedIndex = 0;
 }
 
 function removeClassList(elem,removeClass)
@@ -79,36 +80,61 @@ function addClassList(elem,newClass)
 
 //Buttons
 upBtn.onclick = function(){
-    moveUp(getSelectedDiv(),1);
+
+    if(getSelectedDiv() == 'div1')
+    {
+        obj1.moveUp();
+    }
+    else if(getSelectedDiv() == 'div2')
+    {
+        obj2.moveUp();
+    }
 };
 
 downBtn.onclick = function(){
-    moveDown(getSelectedDiv(),1);
+
+    if(getSelectedDiv() == 'div1')
+    {
+        obj1.moveDown();
+    }
+    else if(getSelectedDiv() == 'div2')
+    {
+        obj2.moveDown();
+    }
 };
 
 leftBtn.onclick = function(){
-    moveLeft(getSelectedDiv(),1);
+
+    if(getSelectedDiv() == 'div1')
+    {
+        obj1.moveLeft();
+    }
+    else if(getSelectedDiv() == 'div2')
+    {
+        obj2.moveLeft();
+    }
 };
 
 rightBtn.onclick = function(){
-    moveRight(getSelectedDiv(),1);
-};
 
-divSelect.onchange = function(){
-    if(this.value == 'div1')
+    if(getSelectedDiv() == 'div1')
     {
-        getDivColor('.div1-class');
+        obj1.moveRight();
     }
-    else if(this.value == 'div2')
+    else if(getSelectedDiv() == 'div2')
     {
-        getDivColor('.div2-class');
+        obj2.moveRight();
     }
 };
-
 
 
 
 window.onload = function(){
     clearInput();
     loadInputs();
+
+    obj1 = new moveDivObj(div1,1);
+    obj2 = new moveDivObj(div2,5);
+    
 };
+
