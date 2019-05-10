@@ -20,7 +20,7 @@ function getJson()
 
                 for(i = 0; i < jsonObj.result.length; i++)
                 {
-                    for(j = (i + 1); j < (jsonObj.result.length - 1); j++)
+                    for(j = (i + 1); j < (jsonObj.result.length - i - 1); j++)
                     {
                         if(jsonObj.result[i].episode_id >
                            jsonObj.result[j].episode_id)
