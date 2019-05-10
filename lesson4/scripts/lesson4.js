@@ -64,7 +64,7 @@ function replaceAllString(thisString,oldString,newString)
     var crawlString = thisString;
     while(crawlString.search(oldString))
     {
-        crawlString.replace(oldString,newString);
+        crawlString = crawlString.replace(oldString,newString);
     }
     
     return crawlString;
