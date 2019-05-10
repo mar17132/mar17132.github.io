@@ -13,25 +13,31 @@ function getJson()
 
     xhttp = new XMLHttpRequest();
     jsonObj = "";
+    jsonURL = 'https://swapi.co/api/films/';
     xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200)
             {
                 jsonObj = JSON.parse(this.responseText);
+                ajaxResults = jsonObj.results;
+                resultsLength = ajaxResults.length;
 
-                for(i = 0; i < jsonObj.result.length; i++)
+                for(i = 0; i < resultsLength; i++)
                 {
-                    for(j = (i + 1); j < (jsonObj.result.length - i - 1); j++)
+                    for(j = (i + 1); j < (resultsLength - i) - 1; j++)
                     {
-                        if(jsonObj.result[i].episode_id >
-                           jsonObj.result[j].episode_id)
+                        if(ajaxResults[j].episode_id <
+                           ajaxResults[j + 1].episode_id)
                         {
-
+                            temp = ajaxResults[j];
+                            ajaxResults[j] = ajaxResults[j + 1];
+                            ajaxResults[j + 1] = temp;
                         }
                     }
                 }
+                loadOptions();
             }
     };
-    xhttp.open("GET",jsonFile,true);
+    xhttp.open("GET",jsonURL,true);
     xhttp.send();
 
 
@@ -54,9 +60,10 @@ function createOptions(optText,optVal)
 }
 
 selectJson.onchange = function(){
-    getJson();
+    //getJson();
 };
 
 window.onload = function(){
     selectJson.selectedIndex = 0;
+    getJson();
 };
