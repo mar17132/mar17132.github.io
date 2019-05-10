@@ -56,7 +56,7 @@ function createOptions(optText,optVal)
     var newOption = document.createElement('option');
     newOption.value = optVal;
     newOption.innerHTML = optText;
-    divSelect.appendChild(newOption);
+    selectJson.appendChild(newOption);
 }
 
 selectJson.onchange = function(){
