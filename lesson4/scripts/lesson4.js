@@ -62,7 +62,7 @@ function createOptions(optText,optVal)
 function replaceAllString(thisString,oldString,newString)
 {
     var crawlString = thisString;
-    while(crawlString.search(oldString))
+    while(crawlString.search(oldString) != -1)
     {
         crawlString = crawlString.replace(oldString,newString);
     }
