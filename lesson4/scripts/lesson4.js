@@ -60,7 +60,7 @@ function createOptions(optText,optVal)
 }
 
 selectJson.onchange = function(){
-    //getJson();
+    displayDivContent.innerHTML = ajaxResults[this.value].opening_crawl;
 };
 
 window.onload = function(){
