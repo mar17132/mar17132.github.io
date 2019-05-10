@@ -1,28 +1,56 @@
+
+//https://swapi.co/api/films/
+//opening_crawl,title, episode_id
+//films 1-7
+
 var selectJson = document.getElementById('jsonSelect');
 var displayDivContent = document.getElementById('displayDivContent');
-var displayDivMess = document.getElementById('displayDivMessage');
+var ajaxResults = null;
 
 function getJson()
 {
     var jsonFile = selectJson.value;
 
-    if(jsonFile == "json1.json" || jsonFile == "json2.json"
-       || jsonFile == "json3.json")
-    {
-        xhttp = new XMLHttpRequest();
-        jsonObj = "";
-        xhttp.onreadystatechange = function(){
+    xhttp = new XMLHttpRequest();
+    jsonObj = "";
+    xhttp.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200)
             {
-                displayDivContent.innerHTML = this.responseText;
                 jsonObj = JSON.parse(this.responseText);
-                displayDivMess.innerHTML = jsonObj.message;
-            }
-        };
-        xhttp.open("GET",jsonFile,true);
-        xhttp.send();
-    }
 
+                for(i = 0; i < jsonObj.result.length; i++)
+                {
+                    for(j = (i + 1); j < (jsonObj.result.length - 1); j++)
+                    {
+                        if(jsonObj.result[i].episode_id >
+                           jsonObj.result[j].episode_id)
+                        {
+
+                        }
+                    }
+                }
+            }
+    };
+    xhttp.open("GET",jsonFile,true);
+    xhttp.send();
+
+
+}
+
+function loadOptions()
+{
+    for(i = 0; i < ajaxResults.length; i++)
+    {
+        createOptions(ajaxResults[i].title,i);
+    }
+}
+
+function createOptions(optText,optVal)
+{
+    var newOption = document.createElement('option');
+    newOption.value = optVal;
+    newOption.innerHTML = optText;
+    divSelect.appendChild(newOption);
 }
 
 selectJson.onchange = function(){

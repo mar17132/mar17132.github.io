@@ -13,15 +13,15 @@
     <body>
         <div class="content">
             <h2>
-                Using Ajax to request Star wars information from swapi.co
+                AJAX requesting a JSON file
             </h2>
             <span>
-                Select a movie to display the being crawl.
+                Select a json file to read and display.
             </span>
             <br/><br/>
             <select id="jsonSelect" >
                 <option value="null">
-                    Select a movie
+                    Select Json
                 </option>
                 <option value="json1.json">
                     json1
@@ -34,7 +34,16 @@
                 </option>
             </select>
             <br/><br/>
-            <div id="displayDivContent" class="crawl" >
+            <span>
+                Display the file contents.
+            </span>
+            <div id="displayDivContent" >
+
+            </div>
+            <span>
+                Display the file message.
+            </span>
+            <div id="displayDivMessage" >
 
             </div>
         </div>
