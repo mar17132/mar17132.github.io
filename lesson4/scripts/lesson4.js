@@ -60,7 +60,7 @@ function createOptions(optText,optVal)
 }
 
 selectJson.onchange = function(){
-    displayDivContent.innerHTML = ajaxResults[this.value].opening_crawl;
+    displayDivContent.innerHTML = ajaxResults[this.value].opening_crawl.replace('\r\n','<br/>');
 };
 
 window.onload = function(){
