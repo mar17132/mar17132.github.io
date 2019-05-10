@@ -61,12 +61,13 @@ function createOptions(optText,optVal)
 
 function replaceAllString(thisString,oldString,newString)
 {
-    while(thisString.search(oldString) != -1)
+    var crawlString = thisString;
+    while(crawlString.search(oldString))
     {
-        thisString.replace(oldString,newString);
+        crawlString.replace(oldString,newString);
     }
     
-    return thisString;
+    return crawlString;
 }
 
 selectJson.onchange = function(){
