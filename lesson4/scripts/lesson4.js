@@ -59,8 +59,18 @@ function createOptions(optText,optVal)
     selectJson.appendChild(newOption);
 }
 
+function replaceAllString(thisString,oldString,newString)
+{
+    while(thisString.search(oldString) != -1)
+    {
+        thisString.replace(oldString,newString);
+    }
+    
+    return thisString;
+}
+
 selectJson.onchange = function(){
-    displayDivContent.innerHTML = ajaxResults[this.value].opening_crawl.replace('\r\n','<br/>');
+    displayDivContent.innerHTML = replaceAllString(ajaxResults[this.value].opening_crawl,'\r\n','<br/>');
 };
 
 window.onload = function(){
