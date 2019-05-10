@@ -23,7 +23,7 @@ function getJson()
 
                 for(i = 0; i < resultsLength; i++)
                 {
-                    for(j = (i + 1); j < (resultsLength - i) - 1; j++)
+                    for(j = 0; j < (resultsLength - i) - 1; j++)
                     {
                         if(ajaxResults[j].episode_id >
                            ajaxResults[j + 1].episode_id)
