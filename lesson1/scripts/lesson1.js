@@ -13,7 +13,7 @@ function getSelectedDiv()
             break;
         default:
             returnVal = elemArray[mySelectItem - 1];
-    } 
+    }
 
     return returnVal;
 }
@@ -105,7 +105,7 @@ function addBorderColor(colorArray)
     if(Array.isArray(colorArray))
     {
         var l = 0;
-        
+
         while(colorArray[l])
         {
             elemArray[l].style.borderColor = colorArray[l];
@@ -138,7 +138,7 @@ rightBtn.onclick = function(){
 changeColorBtn.onclick = function(){
     var borderColorVal = borderColorTxt.value;
     var backColorVal = backColorTxt.value;
-    
+
     if(borderColorVal != '')
     {
         if(borderColorVal.includes(','))
@@ -150,7 +150,7 @@ changeColorBtn.onclick = function(){
             addBorderColor(borderColorVal);
         }
     }
-    
+
     if(backColorVal != '')
     {
         if(backColorVal.includes(','))
@@ -162,7 +162,7 @@ changeColorBtn.onclick = function(){
             addBackColor(backColorVal);
         }
     }
-    
+
     clearInput();
 };
 
@@ -175,5 +175,5 @@ window.onload = function(){
     elemArray.push(div2);
     elemArray.push(div3);
     elemArray.push(div4);
-    
+
 };

@@ -24,7 +24,7 @@ moveDivObj.prototype.setAmountMove = function(newMove){
 moveDivObj.prototype.moveUp = function(moveAmmount = this.amountMove){
 
     if(this.amountMove != null)
-    {   
+    {
         if(this.elem != null)
         {
             var thisTopOff = 0;
@@ -49,7 +49,7 @@ moveDivObj.prototype.moveUp = function(moveAmmount = this.amountMove){
 moveDivObj.prototype.moveDown = function moveDown(moveAmmount = this.amountMove){
 
     if(this.amountMove != null)
-    {   
+    {
         if(this.elem != null)
         {
             var thisBottomOff = 0;
@@ -74,7 +74,7 @@ moveDivObj.prototype.moveDown = function moveDown(moveAmmount = this.amountMove)
 moveDivObj.prototype.moveLeft = function(moveAmmount = this.amountMove){
 
     if(this.amountMove != null)
-    {   
+    {
         if(this.elem != null)
         {
             var thisLeftOff = 0;
@@ -99,7 +99,7 @@ moveDivObj.prototype.moveLeft = function(moveAmmount = this.amountMove){
 moveDivObj.prototype.moveRight = function(moveAmmount = this.amountMove){
 
     if(this.amountMove != null)
-    {   
+    {
         if(this.elem != null)
         {
             var thisRightOff = 0;

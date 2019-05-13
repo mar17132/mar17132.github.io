@@ -135,6 +135,6 @@ window.onload = function(){
 
     obj1 = new moveDivObj(div1,1);
     obj2 = new moveDivObj(div2,5);
-    
+
 };
 

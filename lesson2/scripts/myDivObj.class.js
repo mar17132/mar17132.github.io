@@ -14,10 +14,10 @@ myDivObj.prototype.getHigh = function(){
 };
 
 myDivObj.prototype.getWide = function(){
-    return (this.elem != null) ? this.elem.clientWidth : null;    
+    return (this.elem != null) ? this.elem.clientWidth : null;
 };
 
-myDivObj.prototype.setWide = function(newWidth){        
+myDivObj.prototype.setWide = function(newWidth){
     this.elem.style.width = newWidth + 'px';
 };
 
