@@ -18,7 +18,7 @@ function getJson()
             if(this.readyState == 4 && this.status == 200)
             {
                 jsonObj = JSON.parse(this.responseText);
-                ajaxResults = jsonObj.results;
+                ajaxResults = jsonObj;
                 resultsLength = ajaxResults.length;
 
             }
