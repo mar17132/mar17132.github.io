@@ -2,9 +2,11 @@
 //opening_crawl,title, episode_id
 //films 1-7
 
-var selectJson = document.getElementById('jsonSelect');
-var displayDivContent = document.getElementById('displayDivContent');
+var disJsonStringDiv = document.getElementById('jsonString');
+var disJsonObjDiv = document.getElementById('jsonObject');
 var ajaxResults = null;
+var disJsonObjBtn = document.getElementById('displayObj');
+var disJsonStringBtn = document.getElementById('displayString');
 
 function getJson()
 {
@@ -20,60 +22,20 @@ function getJson()
                 ajaxResults = jsonObj.results;
                 resultsLength = ajaxResults.length;
 
-                for(i = 0; i < resultsLength; i++)
-                {
-                    for(j = 0; j < (resultsLength - i) - 1; j++)
-                    {
-                        if(ajaxResults[j].episode_id >
-                           ajaxResults[j + 1].episode_id)
-                        {
-                            temp = ajaxResults[j];
-                            ajaxResults[j] = ajaxResults[j + 1];
-                            ajaxResults[j + 1] = temp;
-                        }
-                    }
-                }
-                loadOptions();
             }
     };
     xhttp.open("GET",jsonURL,true);
     xhttp.send();
-
-
 }
 
-function loadOptions()
-{
-    for(i = 0; i < ajaxResults.length; i++)
-    {
-        createOptions(ajaxResults[i].title,i);
-    }
-}
+disJsonObjBtn.onclick = function(){
+    disJsonObjBtn.innerHTML = ajaxResults;
+};
 
-function createOptions(optText,optVal)
-{
-    var newOption = document.createElement('option');
-    newOption.value = optVal;
-    newOption.innerHTML = optText;
-    selectJson.appendChild(newOption);
-}
-
-function replaceAllString(thisString,oldString,newString)
-{
-    var crawlString = thisString;
-    while(crawlString.search(oldString) != -1)
-    {
-        crawlString = crawlString.replace(oldString,newString);
-    }
-    
-    return crawlString;
-}
-
-selectJson.onchange = function(){
-    displayDivContent.innerHTML = replaceAllString(ajaxResults[this.value].opening_crawl,'\r\n','<br/>');
+disJsonStringBtn.onclick = function(){
+    disJsonStringDiv.innerHTML = JSON.stringify(ajaxResults);
 };
 
 window.onload = function(){
-    selectJson.selectedIndex = 0;
     getJson();
 };
