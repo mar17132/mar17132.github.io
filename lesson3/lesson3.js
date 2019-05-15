@@ -28,7 +28,7 @@ function getJson()
 }
 
 disJsonObjBtn.onclick = function(){
-    disJsonObjBtn.innerHTML = ajaxResults;
+    disJsonObjBtn.innerHTML = document.write(ajaxResults);
 };
 
 disJsonStringBtn.onclick = function(){
