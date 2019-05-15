@@ -10,7 +10,6 @@ var disJsonStringBtn = document.getElementById('displayString');
 
 function getJson()
 {
-    var jsonFile = selectJson.value;
 
     xhttp = new XMLHttpRequest();
     jsonObj = "";
