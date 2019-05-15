@@ -28,7 +28,7 @@ function getJson()
 }
 
 disJsonObjBtn.onclick = function(){
-    disJsonObjBtn.innerHTML = "Please check the web browser console to see the object printed out";
+    disJsonObjDiv.innerHTML = ajaxResults;
     console.log(ajaxResults);
 };
 
