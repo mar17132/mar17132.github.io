@@ -1,4 +1,4 @@
-function moveDivObj(elemObj,moveAmmount = 0)
+function moveDivObj(elemObj,moveAmmount = 1)
 {
     myDivObj.call(this,elemObj);
 

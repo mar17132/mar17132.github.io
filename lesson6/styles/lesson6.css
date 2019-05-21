@@ -51,12 +51,20 @@ display: inline-block;
     border-width: 1px;
     border-style: solid;
 }
-.div1-class{
+.div-class{
     top:0px;
     left:0px;
+    width: 200px;
+    height: 100px;
     z-index: 10;
     border-color: black;
     background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display:block;
+    border-width: 1px;
+    border-style: solid;
 }
 .div2-class{
     top:115px;

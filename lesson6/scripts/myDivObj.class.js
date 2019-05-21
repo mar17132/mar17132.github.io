@@ -24,3 +24,7 @@ myDivObj.prototype.setWide = function(newWidth){
 myDivObj.prototype.setHigh = function(newHigh){
     this.elem.style.height = newHigh + 'px';
 };
+
+myDivObj.prototype.getElem = function(){
+    return this.elem;
+};

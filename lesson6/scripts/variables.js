@@ -1,7 +1,6 @@
 //variables
-
-var obj1 = null;
-var obj2 = null;
+var divCanvase = document.getElementById('divCanvas');
+var divArray = Array();
 
 //bounderies
 var bounderiesObj = {
@@ -11,18 +10,21 @@ var bounderiesObj = {
     right:998
 };
 
-//changing DIV
-var div1 = document.getElementById('div1');
-var div2 = document.getElementById('div2');
-
 //select
 var divSelect = document.getElementById('select-div');
+var beforeSelect = document.getElementById('addBefore');
 
 //buttons
 var downBtn = document.getElementById('downBtn');
 var upBtn = document.getElementById('upBtn');
 var leftBtn = document.getElementById('leftBtn');
 var rightBtn = document.getElementById('rightBtn');
+var removeBtn = document.getElementById('removeBtn');
+var addBtn = document.getElementById('addBtn');
 
-
+//input
+var widthTxt = document.getElementById('newWidth');
+var heightTxt = document.getElementById('newHeight');
+var borderCTxt = document.getElementById('newBorderColor');
+var backgroundCTxt = document.getElementById('newBackColor');
 
