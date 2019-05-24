@@ -90,11 +90,11 @@ display: inline-block;
     100%{left:0}
 }
 
-div:active:after{
-    width: 300px;
+div{
+    transition-property: width;	 	
+    transition-duration: 5s;  
 }
 
-div{
-    transition-duration: width 5s;  
-}
+.test{width:300px;}
+
 
