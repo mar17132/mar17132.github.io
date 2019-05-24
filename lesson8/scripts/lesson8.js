@@ -127,6 +127,9 @@ rightBtn.onclick = function(){
     }
 };
 
+divSelect.onchange = function(){
+	addClassList(div1,"test");
+};
 
 
 window.onload = function(){
