@@ -65,3 +65,36 @@ display: inline-block;
     border-color: black;
     background-color: transparent;
 }
+
+.upDown-Animation{
+    animation-name: updownAn;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes updownAn {
+    0% {top:0;left:0}
+    50% {top:200px;left:0;}   
+    100%{top:0;left:0} 
+}
+
+.leftRight-Animation{
+    animation-name: leftrightAn;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes leftrightAn {
+    0% {left:0}
+    50% {left:400px;}
+    100%{left:0}
+}
+
+div:active:after{
+    width: 300px;
+}
+
+div{
+    transition-duration: width 5s;  
+}
+
