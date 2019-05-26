@@ -16,13 +16,10 @@ var div1 = document.getElementById('div1');
 var div2 = document.getElementById('div2');
 
 //select
-var divSelect = document.getElementById('select-div');
 
 //buttons
-var downBtn = document.getElementById('downBtn');
-var upBtn = document.getElementById('upBtn');
-var leftBtn = document.getElementById('leftBtn');
-var rightBtn = document.getElementById('rightBtn');
+var animeBtn = document.getElementById('animatBtn');
+var transBtn = document.getElementById('transBtn');
 
 
 

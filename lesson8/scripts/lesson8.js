@@ -1,7 +1,3 @@
-
-
-
-
 function getSelectedDiv()
 {
     if(divSelect.value != 'null')
@@ -79,58 +75,39 @@ function addClassList(elem,newClass)
 }
 
 //Buttons
-upBtn.onclick = function(){
 
-    if(getSelectedDiv() == 'div1')
-    {
-        obj1.moveUp();
-    }
-    else if(getSelectedDiv() == 'div2')
-    {
-        obj2.moveUp();
-    }
-};
 
-downBtn.onclick = function(){
-
-    if(getSelectedDiv() == 'div1')
+animeBtn.onclick = function(){
+    if(this.value == "Start Animation")
     {
-        obj1.moveDown();
+        this.value = "Stop Animation";
+        removeClassList(div1,"stop-Animation");
+        removeClassList(div2,"stop-Animation");
     }
-    else if(getSelectedDiv() == 'div2')
+    else
     {
-        obj2.moveDown();
+        this.value = "Start Animation";
+       // div1.style.top = div1.offsetTop + "px";
+        addClassList(div1,"stop-Animation");
+       // div2.style.left = div2.offsetLeft + "px";
+        addClassList(div2,"stop-Animation");
     }
 };
 
-leftBtn.onclick = function(){
-
-    if(getSelectedDiv() == 'div1')
+transBtn.onclick = function(){
+    if(this.value == "Start Transitions")
     {
-        obj1.moveLeft();
+        this.value = "Reset Transitions";
+        addClassList(div1,"growW");
+        addClassList(div2,"growH");
     }
-    else if(getSelectedDiv() == 'div2')
+    else
     {
-        obj2.moveLeft();
-    }
-};
-
-rightBtn.onclick = function(){
-
-    if(getSelectedDiv() == 'div1')
-    {
-        obj1.moveRight();
-    }
-    else if(getSelectedDiv() == 'div2')
-    {
-        obj2.moveRight();
+        this.value = "Start Transitions";
+        removeClassList(div1,"growW");
+        removeClassList(div2,"growH");
     }
 };
-
-divSelect.onchange = function(){
-	addClassList(div1,"test");
-};
-
 
 window.onload = function(){
     clearInput();

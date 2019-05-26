@@ -22,67 +22,15 @@
             </li>
             <li class="liRow">
                 <div class="div-canvas">
-                    <div id="div1" class="default-size div1-class"></div>
-                    <div id="div2" class="default-size div2-class"></div>
+                    <div id="div1" class="default-size div1-class upDown-Animation stop-Animation"></div>
+                    <div id="div2" class="default-size div2-class leftRight-Animation stop-Animation"></div>
                 </div>
             </li>
             <li class="liRow">
                 <div class="controls">
-                        <span>
-                            Onload of there aretwo object that are
-                            created out of the two div elements.
-                            The objects have custom methods that
-                            will move the div elements.
-                            Move the currently selected div <br/>
-                        </span>
-                        <br/><br/>
-                    <select id="select-div">
-                        <option value="null">
-                            Select DIV
-                        </option>
-                        <option value="div1">
-                            DIV1
-                        </option>
-                        <option value="div2">
-                            DIV2
-                        </option>
-                    </select>
+                    <input type="button" id="animatBtn" value="Start Animation" />
                     <br/>
-                    <div class="div-btn-move">
-                        <ul class="row-move-button">
-                            <li class="empty-li-button">
-
-                            </li>
-                            <li class="cell-li-button">
-                                <input type="button" value="up" id="upBtn" />
-                            </li>
-                            <li class="empty-li-button">
-
-                            </li>
-                        </ul>
-                        <ul class="row-move-button">
-                            <li class="cell-li-button">
-                                <input type="button" value="left" id="leftBtn" />
-                            </li>
-                            <li class="empty-li-button">
-
-                            </li>
-                            <li class="cell-li-button">
-                                <input type="button" value="right" id="rightBtn" />
-                            </li>
-                        </ul>
-                        <ul class="row-move-button">
-                            <li class="empty-li-button">
-
-                            </li>
-                            <li class="cell-li-button">
-                                <input type="button" value="down" id="downBtn" />
-                            </li>
-                            <li class="empty-li-button">
-
-                            </li>
-                        </ul>
-                    </div>
+                    <input type="button" id="transBtn" value="Start Transitions" />
                 </div>
             </li>
         </ul>

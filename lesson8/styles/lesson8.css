@@ -3,30 +3,37 @@ body{
     margin: 0;
     font-size: 1em;
 }
+
 .assTitle{
     text-align: center;
 
 }
+
 .controls{
     margin-top: 25px;
     width: 320px;
 }
+
 ul{
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 .div-btn-move{
     width: 275px;
 }
+
 .empty-li-button{
     width: 49px;
     height: 26px;
 }
+
 .cell-li-button,.empty-li-button{
 
 display: inline-block;
 }
+
 .liRow{
     display: inline-block;
     padding: 25px;
@@ -73,9 +80,9 @@ display: inline-block;
 }
 
 @keyframes updownAn {
-    0% {top:0;left:0}
-    50% {top:200px;left:0;}   
-    100%{top:0;left:0} 
+    0% {top:0}
+    50% {top:200px}
+    100%{top:0}
 }
 
 .leftRight-Animation{
@@ -90,11 +97,21 @@ display: inline-block;
     100%{left:0}
 }
 
+.stop-Animation{
+    animation-play-state: paused;
+}
+
 div{
-    transition-property: width;	 	
+    transition-property: width,height;
     transition-duration: 5s;  
 }
 
-.test{width:300px;}
+.growW{
+    width:300px;
+}
+
+.growH{
+    height: 400px;
+}
 
 
