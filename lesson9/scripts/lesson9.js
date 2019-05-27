@@ -61,7 +61,7 @@ function clearInput()
 
 function loadInputs()
 {
-    divSelect.selectedIndex = 0;
+
 }
 
 function removeClassList(elem,removeClass)
@@ -87,9 +87,7 @@ animeBtn.onclick = function(){
     else
     {
         this.value = "Start Animation";
-       // div1.style.top = div1.offsetTop + "px";
         addClassList(div1,"stop-Animation");
-       // div2.style.left = div2.offsetLeft + "px";
         addClassList(div2,"stop-Animation");
     }
 };
@@ -109,12 +107,48 @@ transBtn.onclick = function(){
     }
 };
 
+div1.ontouchstart = function(event){
+    numColor = Math.floor((Math.random() * (touchColors.length - 1)) + 1);
+    this.style.backgroundColor = touchColors[numColor];
+    totalTouches++;
+    touchStat.innerHTML = "Touch Started<br/>Total Touches = " + totalTouches;
+};
+
+div1.ontouchend = function(event){
+    touchStat.innerHTML = "Touch Ended<br/>Total Touches = " + totalTouches;
+};
+
+document.body.onkeydown = function(event){
+
+    switch(event.keyCode)
+    {
+        case 87:
+            //w was pressed down
+            obj3.moveUp(5);
+            break;
+        case 65:
+            //a was pressed down
+            obj3.moveLeft(5);
+            break;
+        case 68:
+            //d was pressed down
+            obj3.moveRight(5);
+            break;
+        case 83:
+            //s wass pressed down
+            obj3.moveDown(5);
+            break;
+    }
+
+};
+
 window.onload = function(){
     clearInput();
     loadInputs();
 
     obj1 = new moveDivObj(div1,1);
     obj2 = new moveDivObj(div2,5);
+    obj3 = new moveDivObj(div3,5);
 
 };
 

@@ -2,6 +2,12 @@
 
 var obj1 = null;
 var obj2 = null;
+var obj3 = null;
+var touchStat = document.getElementById('touchStatus');
+var totalTouches = 0;
+
+//color array
+var touchColors = ['blue','red','green','yellow','brown','white'];
 
 //bounderies
 var bounderiesObj = {
@@ -14,6 +20,7 @@ var bounderiesObj = {
 //changing DIV
 var div1 = document.getElementById('div1');
 var div2 = document.getElementById('div2');
+var div3 = document.getElementById('div3');
 
 //select
 

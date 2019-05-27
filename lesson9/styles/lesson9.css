@@ -50,7 +50,7 @@ display: inline-block;
     height: 100px;
 }
 
-#div1,#div2{
+.div-elems{
     margin: 0px;
     padding: 0px;
     position: absolute;
@@ -58,6 +58,7 @@ display: inline-block;
     border-width: 1px;
     border-style: solid;
 }
+
 .div1-class{
     top:0px;
     left:0px;
@@ -68,6 +69,14 @@ display: inline-block;
 .div2-class{
     top:115px;
     left:0px;
+    z-index: 5;
+    border-color: black;
+    background-color: transparent;
+}
+
+.div3-class{
+    top:0;
+    left:215px;
     z-index: 5;
     border-color: black;
     background-color: transparent;

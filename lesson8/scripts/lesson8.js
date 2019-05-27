@@ -61,7 +61,7 @@ function clearInput()
 
 function loadInputs()
 {
-    divSelect.selectedIndex = 0;
+
 }
 
 function removeClassList(elem,removeClass)
