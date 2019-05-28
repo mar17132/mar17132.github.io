@@ -39,8 +39,8 @@ display: inline-block;
     padding: 25px;
 }
 .div-canvas{
-    width: 1000px;
-    height: 550px;
+    width: 754px;
+    height: 506px;
     overflow: hidden;
     border: 1px black solid;
     position: relative;

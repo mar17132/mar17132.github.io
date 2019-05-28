@@ -35,7 +35,7 @@ moveDivObj.prototype.moveUp = function(moveAmmount = this.amountMove){
 
             if(!this.isBound())
             {
-                this.elem.style.top = thisTopOff + "px";
+                this.elem.style.top = bounderiesObj.top + "px";
             }
         }
     }
@@ -85,7 +85,7 @@ moveDivObj.prototype.moveLeft = function(moveAmmount = this.amountMove){
 
             if(!this.isBound())
             {
-                this.elem.style.left = thisLeftOff + "px";
+                this.elem.style.left = bounderiesObj.left + "px";
             }
         }
     }

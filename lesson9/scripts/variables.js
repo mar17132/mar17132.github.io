@@ -5,6 +5,10 @@ var obj2 = null;
 var obj3 = null;
 var touchStat = document.getElementById('touchStatus');
 var totalTouches = 0;
+var animStat = document.getElementById('totalAnim');
+var totalAnime = 0;
+var tranStat = document.getElementById('totalTran');
+var totalTran = 0;
 
 //color array
 var touchColors = ['blue','red','green','yellow','brown','white'];
@@ -13,8 +17,8 @@ var touchColors = ['blue','red','green','yellow','brown','white'];
 var bounderiesObj = {
     top:0,
     left:0,
-    bottom:548,
-    right:998
+    bottom:504,
+    right:752
 };
 
 //changing DIV

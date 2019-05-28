@@ -118,6 +118,21 @@ div1.ontouchend = function(event){
     touchStat.innerHTML = "Touch Ended<br/>Total Touches = " + totalTouches;
 };
 
+div2.onanimationstart = function(event){
+    animStat.innerHTML = totalAnime;
+    tranStat.innerHTML = totalTran;
+};
+
+div2.onanimationiteration = function(event){
+    totalAnime++;
+    animStat.innerHTML = totalAnime;
+};
+
+div2.ontransitionend = function(event){
+    totalTran++;
+    tranStat.innerHTML = totalTran;
+};
+
 document.body.onkeydown = function(event){
 
     switch(event.keyCode)
