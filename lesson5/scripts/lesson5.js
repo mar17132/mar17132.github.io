@@ -58,31 +58,21 @@ function setCSSPropVal(cssSelector,cssProp,cssVal)
 function clearInput()
 {
     divSelect.selectedIndex = 0;
-    beforeSelect.selectedIndex = 0;
     disButton(removeBtn);
     disButton(rightBtn);
     disButton(downBtn);
     disButton(upBtn);
     disButton(leftBtn);
-    heightTxt.value = "";
-    widthTxt.value = "";
-    borderCTxt.value = "";
-    backgroundCTxt.value = "";
 }
 
 function loadInputs()
 {
     divSelect.selectedIndex = 0;
-    beforeSelect.selectedIndex = 0;
     disButton(removeBtn);
     disButton(rightBtn);
     disButton(downBtn);
     disButton(upBtn);
     disButton(leftBtn);
-    heightTxt.value = "";
-    widthTxt.value = "";
-    borderCTxt.value = "";
-    backgroundCTxt.value = "";
 }
 
 function removeClassList(elem,removeClass)
@@ -125,25 +115,16 @@ function toggleDisButton(elem)
     }
 }
 
-function createNewDiv(nHeight = '100', nWidth = '200', borderC = 'black',
-                       backC = 'transparent', elemBefore = null)
+function createNewDiv()
 {
     var newDiv = document.createElement('div');
     newDiv.setAttribute('id', "div" + (divArray.length + 1));
     addClassList(newDiv,'div-class');
-    newDiv.style.height = nHeight + 'px';
-    newDiv.style.width = nWidth + 'px';
-    newDiv.style.borderColor = borderC;
-    newDiv.style.backgroundColor = backC;
+    newDiv.style.height = '100px';
+    newDiv.style.width = '200px';
+    newDiv.style.borderColor = "black";
 
-    if(elemBefore != 'null')
-    {
-        divCanvase.insertBefore(newDiv, divArray[elemBefore].getElem());
-    }
-    else
-    {
-       divCanvase.appendChild(newDiv);
-    }
+    divCanvase.appendChild(newDiv);
 
     return newDiv;
 }
@@ -166,12 +147,9 @@ rightBtn.onclick = function(){
 };
 
 addBtn.onclick = function(){
-    divArray.push(new moveDivObj(createNewDiv(heightTxt.value,widthTxt.value,borderCTxt.value,
-                  backgroundCTxt.value,beforeSelect.value),5));
-    createOptions(beforeSelect,"DIV" + divArray.length, (divArray.length - 1));
+    divArray.push(new moveDivObj(createNewDiv(),5));
     createOptions(divSelect,"DIV" + divArray.length, (divArray.length - 1));
     clearInput();
-    enableButton(beforeSelect);
 };
 
 removeBtn.onclick = function(){
@@ -189,23 +167,12 @@ removeBtn.onclick = function(){
         }
     }
 
-    divBeforChild = beforeSelect.children;
-
-    for(l = 0; l < divBeforChild.length; l++)
-    {
-        if(divBeforChild[l].value == selectedDiv)
-        {
-            beforeSelect.removeChild(divBeforChild[l]);
-        }
-    }
-
     disButton(removeBtn);
     disButton(rightBtn);
     disButton(downBtn);
     disButton(upBtn);
     disButton(leftBtn);
     divSelect.selectedIndex = 0;
-    beforeSelect.selectedIndex = 0;
 
 };
 
@@ -228,9 +195,27 @@ divSelect.onchange = function(){
     }
 };
 
+removeLocalStorage.onclick = function(){
+    localStorage.removeItem("divCount");
+};
+
+addLocalStorage.onclick = function(){
+    localStorage.removeItem("divCount");
+    localStorage.setItem("divCount",divArray.length);
+};
+
 window.onload = function(){
     clearInput();
     loadInputs();
-    disButton(beforeSelect); //there are no elements before
+
+    if(localStorage.getItem("divCount") > 0)
+    {
+        for(l = 0; l < localStorage.getItem("divCount"); l++)
+        {
+            divArray.push(new moveDivObj(createNewDiv(),5));
+            createOptions(divSelect,"DIV" + divArray.length,
+                          (divArray.length - 1));
+        }
+    }
 };
 

@@ -6,13 +6,12 @@ var divArray = Array();
 var bounderiesObj = {
     top:0,
     left:0,
-    bottom:548,
-    right:998
+    bottom:504,
+    right:752
 };
 
 //select
 var divSelect = document.getElementById('select-div');
-var beforeSelect = document.getElementById('addBefore');
 
 //buttons
 var downBtn = document.getElementById('downBtn');
@@ -21,10 +20,7 @@ var leftBtn = document.getElementById('leftBtn');
 var rightBtn = document.getElementById('rightBtn');
 var removeBtn = document.getElementById('removeBtn');
 var addBtn = document.getElementById('addBtn');
+var addLocalStorage = document.getElementById('addLocalStore');
+var removeLocalStorage = document.getElementById('removeLocalStore');
 
-//input
-var widthTxt = document.getElementById('newWidth');
-var heightTxt = document.getElementById('newHeight');
-var borderCTxt = document.getElementById('newBorderColor');
-var backgroundCTxt = document.getElementById('newBackColor');
 
