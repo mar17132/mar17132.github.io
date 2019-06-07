@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+
+<html lang='en' >
+    <head>
+    <meta charset='utf-8' >
+        <title>
+            JavaScript &#45; Loops&#44; Conditional Statements&#44;
+            Functions&#44; Variables&#44; Parameters&#44; Arrays&#44;
+            Associative Arrays
+        </title>
+        <link href="styles/lesson1.css" rel="stylesheet" />
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li class='assTitle'>
+            <h2>
+                JavaScript &#45; Loops&#44; Conditional Statements&#44;
+                Functions&#44; Variables&#44; Parameters&#44; Arrays&#44;
+                Associative Arrays
+            </h2>
+            </li>
+            <li class="liRow">
+                <div class="div-canvas">
+                    <div id="div1" class="default-size div1-class"></div>
+                    <div id="div2" class="default-size div2-class"></div>
+                    <div id="div3" class="default-size div3-class"></div>
+                    <div id="div4" class="default-size div4-class"></div>
+                </div>
+            </li>
+            <li class="liRow">
+                <div class="controls">
+                        <p>
+                            Onload there is an array that is created out of the
+                            four div elements. All of the loops and movment
+                            controls access the array to effect the div
+                            elements.
+                        </p>
+                        <ul>
+                            <li>
+                                Update Boder color using a While loop
+                            </li>
+                            <li>
+                                <input id="bcolorTxt" type="text"
+                                 placeholder="color1,color2,color3,color4" />
+                            </li>
+                             <li>
+                                Update Background color using a For loop
+                            </li>
+                            <li>
+                                <input id="backcolorTxt" type="text"
+                                placeholder="color1,color2,color3,color4" />
+                            </li>
+                            <li>
+                                <input id="colorChangeBtn" type="button"
+                                value="Change Color" />
+                            </li>
+                        </ul>
+                        <br/><br/>
+                        <span>
+                           Move the currently selected div <br/>
+                        </span>
+                        <br/><br/>
+                    <select id="select-div">
+                        <option value="null">
+                            Select DIV
+                        </option>
+                        <option value="div1">
+                            DIV1
+                        </option>
+                        <option value="div2">
+                            DIV2
+                        </option>
+                        <option value="div3">
+                            DIV3
+                        </option>
+                        <option value="div4">
+                            DIV4
+                        </option>
+                    </select>
+                    <br/>
+                    <div class="div-btn-move">
+                        <ul class="row-move-button">
+                            <li class="empty-li-button">
+
+                            </li>
+                            <li class="cell-li-button">
+                                <input type="button" value="up" id="upBtn" />
+                            </li>
+                            <li class="empty-li-button">
+
+                            </li>
+                        </ul>
+                        <ul class="row-move-button">
+                            <li class="cell-li-button">
+                                <input type="button" value="left" id="leftBtn" />
+                            </li>
+                            <li class="empty-li-button">
+
+                            </li>
+                            <li class="cell-li-button">
+                                <input type="button" value="right" id="rightBtn" />
+                            </li>
+                        </ul>
+                        <ul class="row-move-button">
+                            <li class="empty-li-button">
+
+                            </li>
+                            <li class="cell-li-button">
+                                <input type="button" value="down" id="downBtn" />
+                            </li>
+                            <li class="empty-li-button">
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <script src="scripts/variables.js" type="text/javascript"></script>
+        <script src="scripts/myDivObj.class.js" type="text/javascript"></script>
+        <script src="scripts/moveDivObj.class.js" type="text/javascript"></script>
+        <script src="scripts/lesson1.js" type="text/javascript"></script>
+
+        <script type='text/javascript' >
+        </script>
+    </body>
+</html>
