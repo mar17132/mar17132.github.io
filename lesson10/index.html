@@ -12,33 +12,38 @@
         </style>
     </head>
     <body>
+
+        <h2 class='assTitle'>
+            HTML5 Tags &#45; Video&#44; Audio&#44; and Canvas
+        </h2>
         <ul>
-            <li class='assTitle'>
-                <h2>
-                    HTML5 Tags &#45; Video&#44; Audio&#44; and Canvas
-                </h2>
-            </li>
             <li>
                 <div id="videoWrapper">
-                    <video id="videoTag" width="320" height="240" controls>
-
+                    <h1>Video Tag</h1>
+                    <video id="videoTag" width="640" height="480" controls>
+                        <source src="media/man-without-eloquence.mp4"
+                                type="video/mp4" />
                     </video>
                 </div>
             </li>
             <li>
                 <div id="audioWrapper">
+                    <h1>Audio Tag</h1>
                     <audio id="audioTag" controls>
-
+                        <source src="media/01_Random_Slipspace_Trajectory.mp3"
+                                type="audio/mpeg">
                     </audio>
                 </div>
             </li>
             <li>
                 <div id="canvasWrapper">
-                    <canvas id="canvasTag" width="300" height="200"></canvas>
+                    <h1>Canvas Tag</h1>
+                    <canvas id="canvasTag" ></canvas>
                 </div>
             </li>
         </ul>
-        <script type='text/javascript' >
+        <script type='text/javascript' src="scripts/lesson10.js" >
+
         </script>
     </body>
 </html>

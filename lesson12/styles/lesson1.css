@@ -38,6 +38,7 @@ display: inline-block;
     overflow: hidden;
     border: 1px black solid;
     position: relative;
+    perspective: 600px;
 }
 .default-size{
     width: 200px;
@@ -51,6 +52,7 @@ display: inline-block;
     display:block;
     border-width: 1px;
     border-style: solid;
+    transform: rotateX(45deg);
 }
 .div1-class{
     top:0px;
