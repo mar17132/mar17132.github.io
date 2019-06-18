@@ -55,6 +55,10 @@ function stopTextTimer()
     clearInterval(myTimer);
 }
 
+resetBtn.onclick = function(){
+    startCanvasText();
+    startTextTimer();
+};
 
 window.onload = function(){
     startCanvasText();
