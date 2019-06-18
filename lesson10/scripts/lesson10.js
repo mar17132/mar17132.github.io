@@ -1,6 +1,7 @@
 var myCanvas = document.getElementById('canvasTag');
 var canvasContent = myCanvas.getContext("2d");
 var textHeight = 150;
+var resetBtn = document.getElementById('resetBtn');
 var myTimer;
 var printArray = ["It is a period of civil war.",
                   "Rebel spaceships, striking",
