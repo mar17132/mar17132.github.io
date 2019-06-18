@@ -59,6 +59,7 @@ function stopTextTimer()
 resetBtn.onclick = function(){
     stopTextTimer();
     canvasContent.clearRect(0,0,640,480);
+    textHeight = 150;
     startCanvasText();
     startTextTimer();
 };
