@@ -38,7 +38,6 @@ display: inline-block;
     overflow: hidden;
     border: 1px black solid;
     position: relative;
-    perspective: 600px;
 }
 .default-size{
     width: 200px;
@@ -84,22 +83,50 @@ display: inline-block;
     background-color: transparent;
 }
 
+@keyframes widthExample{
+    0%{width: 200px;}
+    50%{width: 300px;}
+    100%{width: 200px;}
+}
+
+@keyframes heightExample{
+    0%{height: 100px;}
+    50%{height: 200px;}
+    100%{height: 100px;}
+}
+
+@keyframes topExample{
+    0%{top:115px;}
+    50%{top:300px;}
+    100%{top:115px;}
+}
+
+@keyframes colorExample{
+    from{background-color: transparent;}
+    50%{background-color: green;}
+    to{background-color: silver;}
+}
+
 #div1:hover{
-    transform: rotateX(45deg);
+    animation-name: widthExample;
+    animation-duration: 5s;
     background-color: orange;
 }
 
 #div2:hover{
-    transform: rotateY(80deg);
+    animation-name: heightExample;
+    animation-duration: 5s;
     background-color: yellow;
 }
 
 #div3:hover{
-    transform: rotateZ(50deg);
+    animation-name: colorExample;
+    animation-duration: 5s;
     background-color: silver;
 }
 
 #div4:hover{
-    transform: translate(50px);
+    animation-name: topExample;
+    animation-duration: 5s;
     background-color: blue;
 }
