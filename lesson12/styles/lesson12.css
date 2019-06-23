@@ -52,33 +52,54 @@ display: inline-block;
     display:block;
     border-width: 1px;
     border-style: solid;
-    transform: rotateX(45deg);
+    font-size: 1.5em;
 }
+
 .div1-class{
     top:0px;
-    left:0px;
+    left:35px;
     z-index: 10;
     border-color: black;
     background-color: transparent;
 }
 .div2-class{
     top:115px;
-    left:0px;
+    left:35px;
     z-index: 5;
     border-color: black;
     background-color: transparent;
 }
 .div3-class{
     top:0px;
-    left:230px;
+    left:260px;
     z-index: 10;
     border-color: black;
     background-color: transparent;
 }
 .div4-class{
     top:115px;
-    left:230px;
+    left:260px;
     z-index: 5;
     border-color: black;
     background-color: transparent;
+}
+
+#div1:hover{
+    transform: rotateX(45deg);
+    background-color: orange;
+}
+
+#div2:hover{
+    transform: rotateY(80deg);
+    background-color: yellow;
+}
+
+#div3:hover{
+    transform: rotateZ(50deg);
+    background-color: silver;
+}
+
+#div4:hover{
+    transform: translate(50px);
+    background-color: blue;
 }
