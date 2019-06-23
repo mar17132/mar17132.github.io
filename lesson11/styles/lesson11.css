@@ -51,7 +51,7 @@ display: inline-block;
     display:block;
     border-width: 1px;
     border-style: solid;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .div1-class{
@@ -76,7 +76,7 @@ display: inline-block;
     z-index: 10;
     border-color: black;
     background-color: transparent;
-    transition: background-color 5s;
+    transition: background-color 2s;
 }
 .div4-class{
     top:115px;
