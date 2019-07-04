@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+
+<html lang='en' >
+    <head>
+    <meta charset='utf-8' >
+        <title>
+            project
+        </title>
+        <link href="styles/project.css" rel="stylesheet" />
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+      <!--  <img src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuXW">
+
+-->
+        <script src="scripts/variables.js"></script>
+        <script src="scripts/apiObj.class.js"></script>
+        <script src="scripts/userObj.class.js"></script>
+        <script src="scripts/songObj.class.js"></script>
+        <script src="scripts/songsObj.class.js"></script>
+        <script src="scripts/questionObj.class.js"></script>
+        <script type="text/javascript">
+
+                xhttp = new XMLHttpRequest();
+    jsonObj = "";
+    jsonURL = 'https://api.musixmatch.com/ws/1.1/chart.tracks.get?apikey=c51c885aa28518b28abb7fd7b889fd13&country=usa&page=1&page_size=100&f_has_lyrics=1';
+    xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200)
+            {
+                console.log("this worked");
+            }
+    };
+    xhttp.open("GET",jsonURL,true);
+    xhttp.send();
+        </script>
+    </body>
+</html>

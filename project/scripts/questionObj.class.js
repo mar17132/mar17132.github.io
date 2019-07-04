@@ -1,0 +1,6 @@
+
+function questionObj()
+{
+    this.questionArray = [];
+
+}
