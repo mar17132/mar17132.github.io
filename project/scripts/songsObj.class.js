@@ -84,19 +84,12 @@ songsObj.prototype.setAlbYearArt = function(){
               "&format=jsonp&callback=callback&album_id=" + 
               currentSongObj.getAlbumId();
     xhttp.onreadystatechange = function(){
-        var respons;
-        var albumRespons;
-
-        if(this.responseText != null)
+       if(this.readyState == 4 && this.status == 200)
         {
-            respons = this.responseText;
+            var respons = this.responseText;
             respons = respons.replace("callback(","");
             respons = respons.replace(");","");
-            albumRespons = JSON.parse(respons);
-        }
-
-        if(this.readyState == 4 && this.status == 200 || albumRespons.status_code == 200)
-        {
+            var albumRespons = JSON.parse(respons);
             currentSongObj.setYear(albumRespons.message.body.album.album_release_date);
             currentSongObj.setCdArt(albumRespons.message.body.album.album_coverart_100x100);
         }
