@@ -84,6 +84,7 @@ songsObj.prototype.setAlbYearArt = function(){
               "&album_id=" + 
               currentSongObj.getAlbumId();
     xhttp.onreadystatechange = function(){
+        console.log("this is respons " + this.responseText);
        if(this.readyState == 4 && this.status == 200)
         {
             var respons = this.responseText;
