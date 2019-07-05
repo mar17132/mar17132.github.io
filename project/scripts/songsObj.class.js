@@ -96,7 +96,7 @@ songsObj.prototype.setAlbYearArt = function(){
         }
     };
 
-    xhttp.open("GET",jsonURL,true);
+    xhttp.open("GET",jsonURL,false);
     xhttp.send();
 };
 
@@ -128,6 +128,7 @@ songsObj.prototype.apiReturn = function(){
     {
         this.setSongsArray(this.responsObj[0]);
     }
+    console.log(this.songArray);
 };
 
 songsObj.prototype.getRandomNum = function(limit = 1){
