@@ -64,12 +64,12 @@ songsObj.prototype.setResponsObj = function(respons){
 */
 songsObj.prototype.setSongsArray = function(song){
     var newSong = new songObj();
-    newSong.setAlbum(song.album_name);
-    newSong.setAlbumId(song.album_id);
-    newSong.setSong(song.track_name);
-    newSong.setSongId(song.track_id);
-    newSong.setArtist(song.artist_name);
-    newSong.setArtistId(song.artist_id);
+    newSong.setAlbum(song.track.album_name);
+    newSong.setAlbumId(song.track.album_id);
+    newSong.setSong(song.track.track_name);
+    newSong.setSongId(song.track.track_id);
+    newSong.setArtist(song.track.artist_name);
+    newSong.setArtistId(song.track.artist_id);
     this.songArray.push(newSong);
     this.setAlbYearArt();
     this.setSongLyrics();
@@ -119,6 +119,7 @@ songsObj.prototype.setSongLyrics = function(){
 };
 
 songsObj.prototype.apiReturn = function(){
+    //filter by track.explicit
 
     for(i = 0; i < this.responsObj.length; i++)
     {
