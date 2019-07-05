@@ -124,9 +124,9 @@ songsObj.prototype.setSongLyrics = function(){
 songsObj.prototype.apiReturn = function(){
     //filter by track.explicit
 
-    for(i = 0; i < this.responsObj.length; i++)
+    //for(i = 0; i < this.responsObj.length; i++)
     {
-        this.setSongsArray(this.responsObj[i]);
+        this.setSongsArray(this.responsObj[0]);
     }
 };
 
