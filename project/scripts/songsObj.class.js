@@ -23,8 +23,6 @@ songsObj.prototype.getSongsLoop = function(){
               "&format=jsonp&callback=callback&country=us&page=1&page_size=100&f_has_lyrics=1";
     xhttp.onreadystatechange = function(){
 
-        console.log(this.readyState);
-        console.log(this.status);
         if(this.readyState == 4 && this.status == 200)
         {
             currentObj.setResponsObj(this.responseText);
@@ -78,17 +76,19 @@ songsObj.prototype.setSongsArray = function(song){
 
 songsObj.prototype.setAlbYearArt = function(){
     currentObj = this;
+    currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
     xhttp = new XMLHttpRequest();
-    jsonURL = this.apiUrl + this.albumEndpoint + "?apikey=" + this.apikey +
-              "&format=jsonp&callback=callback&";
+    jsonURL = currentObj.apiUrl + currentObj.albumEndpoint + "?apikey=" + 
+              currentObj.apikey +
+              "&format=jsonp&callback=callback&album_id=" + 
+              currentSongObj.getAlbumId();
     xhttp.onreadystatechange = function(){
 
-        console.log(this.readyState);
-        console.log(this.status);
         if(this.readyState == 4 && this.status == 200)
         {
             var albumRespons = JSON.parse(this.responseText);
-            currentObj.apiReturn();
+            currentSongObj.setYear(albumRespons.message.body.album.album_release_date);
+            currentSongObj.setCdArt(albumRespons.message.body.album.album_coverart_100x100);
         }
     };
 
@@ -98,17 +98,18 @@ songsObj.prototype.setAlbYearArt = function(){
 
 songsObj.prototype.setSongLyrics = function(){
     currentObj = this;
+    currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
     xhttp = new XMLHttpRequest();
-    jsonURL = this.apiUrl + this.trackEndpoint + "?apikey=" + this.apikey +
-              "&format=jsonp&callback=callback&";
+    jsonURL = currentObj.apiUrl + currentObj.trackEndpoint + "?apikey=" + 
+              currentObj.apikey +
+              "&format=jsonp&callback=callback&track_id=" + 
+              currentSongObj.getSongId();
     xhttp.onreadystatechange = function(){
 
-        console.log(this.readyState);
-        console.log(this.status);
         if(this.readyState == 4 && this.status == 200)
         {
             var lyricRespons = JSON.parse(this.responseText);
-            currentObj.apiReturn();
+            currentSongObj.setSongLyrics(lyricRespons.message.body.lyrics.lyrics_body);
         }
     };
 
