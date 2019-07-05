@@ -120,7 +120,7 @@ songsObj.prototype.setSongLyrics = function(){
 
 songsObj.prototype.apiReturn = function(){
 
-    for(i = 0; i < this.responsObj; i++)
+    for(i = 0; i < this.responsObj.length; i++)
     {
         this.setSongsArray(this.responsObj[i]);
     }
