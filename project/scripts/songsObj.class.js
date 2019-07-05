@@ -72,7 +72,7 @@ songsObj.prototype.setSongsArray = function(song){
     newSong.setArtistId(song.track.artist_id);
     this.songArray.push(newSong);
     this.setAlbYearArt();
-    this.setSongLyrics();
+    //this.setSongLyrics();
 };
 
 songsObj.prototype.setAlbYearArt = function(){
@@ -81,7 +81,7 @@ songsObj.prototype.setAlbYearArt = function(){
     xhttp = new XMLHttpRequest();
     jsonURL = currentObj.apiUrl + currentObj.albumEndpoint + "?apikey=" + 
               currentObj.apikey +
-              "&format=jsonp&callback=callback&album_id=" + 
+              "&album_id=" + 
               currentSongObj.getAlbumId();
     xhttp.onreadystatechange = function(){
        if(this.readyState == 4 && this.status == 200)
