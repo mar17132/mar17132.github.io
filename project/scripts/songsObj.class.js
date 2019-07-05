@@ -81,7 +81,7 @@ songsObj.prototype.setAlbYearArt = function(){
     xhttp = new XMLHttpRequest();
     jsonURL = currentObj.apiUrl + currentObj.albumEndpoint + "?apikey=" + 
               currentObj.apikey +
-              "&album_id=" + 
+              "&format=jsonp&callback=callback&album_id=" + 
               currentSongObj.getAlbumId();
     xhttp.onreadystatechange = function(){
         console.log("this is respons " + this.responseText);
