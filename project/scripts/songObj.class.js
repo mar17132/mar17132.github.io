@@ -2,10 +2,14 @@
 function songObj()
 {
     this.artist = "";
+    this.artistId = null;
     this.song = "";
+    this.songId = null;
     this.cdArt = "";
     this.album = "";
+    this.albumId = null;
     this.year = "";
+    this.lyrics = "";
 
     this.beenUse = false;
     this.anwser = false;
@@ -17,8 +21,16 @@ songObj.prototype.getArtist = function(){
     return this.artist;
 };
 
+songObj.prototype.getArtistId = function(){
+    return this.artistId;
+};
+
 songObj.prototype.getSong = function(){
     return this.song;
+};
+
+songObj.prototype.getSongId = function(){
+    return this.songId;
 };
 
 songObj.prototype.getCdArt = function(){
@@ -29,8 +41,16 @@ songObj.prototype.getAlbum = function(){
     return this.album;
 };
 
+songObj.prototype.getAlbumId = function(){
+    return this.albumId;
+};
+
 songObj.prototype.getYear = function(){
     return this.year;
+};
+
+songObj.prototype.getLyrics = function(){
+    return this.lyrics;
 };
 
 songObj.prototype.hasBeenUsed = function(){
@@ -51,8 +71,16 @@ songObj.prototype.setArtist = function(artist){
     this.artist = artist;
 };
 
+songObj.prototype.setArtistId = function(id){
+    this.artistId = id;
+};
+
 songObj.prototype.setSong = function(song){
     this.song = song;
+};
+
+songObj.prototype.setSongId = function(id){
+    this.songId = id;
 };
 
 songObj.prototype.setCdArt = function(cdart){
@@ -63,8 +91,16 @@ songObj.prototype.setAlbum = function(album){
     this.album = album;
 };
 
+songObj.prototype.setAlbumId = function(id){
+    this.albumId = id;
+};
+
 songObj.prototype.setYear = function(year){
     this.year = year;
+};
+
+songObj.prototype.setLyrics = function(lyrics){
+    this.lyrics = lyrics;
 };
 
 songObj.prototype.setBeenUse = function(beenUsed){
@@ -78,4 +114,5 @@ songObj.prototype.setAnwser = function(anwser){
 songObj.prototype.setBeenAnwser = function(beenAnwser){
     this.beenAnwser = beenAnwser;
 };
+
 
