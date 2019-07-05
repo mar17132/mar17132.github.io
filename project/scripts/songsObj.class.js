@@ -32,6 +32,7 @@ songsObj.prototype.getSongsLoop = function(){
 
     xhttp.open("GET",jsonURL,true);
     xhttp.send();
+    console.log(this.songArray);
 
 };
 
@@ -121,7 +122,7 @@ songsObj.prototype.apiReturn = function(){
 
     for(i = 0; i < this.responsObj; i++)
     {
-
+        this.setSongsArray(this.responsObj[i]);
     }
 };
 
