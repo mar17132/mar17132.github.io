@@ -10,15 +10,15 @@ function songsObjTest()
     this.albumEndpoint = "album.get";
     this.lyricEndpoint = "track.lyrics.get";
     this.songObj = function() {
-        "artist" :"",
-        "artistId": null,
-        "song" : "",
-        "songId":null,
-        "cdArt" : "",
-        "album" : "",
-        "albumId" : null,
-        "year" : "",
-        "lyrics": ""
+        this.artist = "";
+    this.artistId = null;
+    this.song = "";
+    this.songId = null;
+    this.cdArt = "";
+    this.album = "";
+    this.albumId = null;
+    this.year = "";
+    this.lyrics = "";
     };
 }
 
