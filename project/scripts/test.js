@@ -103,7 +103,10 @@ songsObjTest.prototype.setSongLyrics = function(){
 
         if(this.readyState == 4 && this.status == 200)
         {
-            var lyricRespons = JSON.parse(this.responseText);
+                        var respons = this.responseText;
+            respons = respons.replace("callback(","");
+            respons = respons.replace(");","");
+            var lyricRespons = JSON.parse(respons);
             currentSongObj.lyrics = lyricRespons.message.body.lyrics.lyrics_body;
         }
     };
