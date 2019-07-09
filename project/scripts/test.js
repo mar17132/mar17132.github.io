@@ -98,7 +98,7 @@ songsObjTest.prototype.setSongLyrics = function(){
     jsonURL = currentObj.apiUrl + currentObj.trackEndpoint + "?apikey=" + 
               currentObj.apikey +
               "&format=jsonp&callback=callback&track_id=" + 
-              currentSongObj.getSongId();
+              currentSongObj.songId;
     xhttp.onreadystatechange = function(){
 
         if(this.readyState == 4 && this.status == 200)
