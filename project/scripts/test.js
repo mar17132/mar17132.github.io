@@ -9,7 +9,7 @@ function songsObjTest()
     this.trackEndpoint = "chart.tracks.get";
     this.albumEndpoint = "album.get";
     this.lyricEndpoint = "track.lyrics.get";
-    this.songObj ={
+    this.songObj = function() {
         "artist" :"",
         "artistId": null,
         "song" : "",
@@ -54,7 +54,7 @@ songsObjTest.prototype.setResponsObj = function(respons){
 };
 
 songsObjTest.prototype.setSongsArray = function(song){
-    var newSong = new this.songObj;
+    var newSong = new this.songObj();
     newSong.album = song.track.album_name;
     newSong.albumId = song.track.album_id;
     newSong.song = song.track.track_name;
