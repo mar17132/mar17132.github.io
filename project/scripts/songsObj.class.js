@@ -138,8 +138,8 @@ songsObj.prototype.getRandomNum = function(limit = 1){
 
 
 
-var test = new songsObj();
+//var test = new songsObj();
 
-test.getSongsLoop();
+//test.getSongsLoop();
 
 
