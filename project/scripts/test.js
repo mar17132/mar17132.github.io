@@ -123,6 +123,7 @@ songsObjTest.prototype.apiReturn = function(){
 
     for(i = 0; i < this.responsObj.length; i++)
     {
+        if(this.responsObj[i].track.explicit == 0)
         this.setSongsArray(this.responsObj[i]);
     }
 };
