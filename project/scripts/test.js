@@ -96,6 +96,7 @@ songsObjTest.prototype.setSongLyrics = function(){
     currentObj = this;
     currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
     xhttp = new XMLHttpRequest();
+    //https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=164504273&apikey=c51c885aa28518b28abb7fd7b889fd13
     jsonURL = currentObj.apiUrl + currentObj.trackEndpoint + "?apikey=" + 
               currentObj.apikey +
               "&format=jsonp&callback=callback&track_id=" + 
