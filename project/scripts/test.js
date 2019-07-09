@@ -8,7 +8,8 @@ function songsObjTest()
     this.apiUrl = "https://api.musixmatch.com/ws/1.1/";
     this.trackEndpoint = "chart.tracks.get";
     this.albumEndpoint = "album.get";
-    this.lyricEndpoint = "track.lyrics.get";
+    //this.lyricEndpoint = "track.lyrics.get";
+    this.lyricEndpoint = "track.snippet.get";
     this.songObj = function() {
         this.artist = "";
     this.artistId = null;
