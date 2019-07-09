@@ -107,7 +107,8 @@ songsObjTest.prototype.setSongLyrics = function(){
             respons = respons.replace("callback(","");
             respons = respons.replace(");","");
             var lyricRespons = JSON.parse(respons);
-            currentSongObj.lyrics = lyricRespons.message.body.lyrics.lyrics_body;
+            //currentSongObj.lyrics = lyricRespons.message.body.lyrics.lyrics_body;
+            console.log(lyricRespons);
         }
     };
 
