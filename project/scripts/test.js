@@ -95,13 +95,13 @@ songsObjTest.prototype.setAlbYearArt = function(){
 songsObjTest.prototype.setSongLyrics = function(){
     currentObj = this;
     currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
-    xhttp = new XMLHttpRequest();
+    xhttp2 = new XMLHttpRequest();
     //https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=164504273&apikey=c51c885aa28518b28abb7fd7b889fd13
     jsonURL = currentObj.apiUrl + currentObj.trackEndpoint + "?apikey=" + 
               currentObj.apikey +
               "&format=jsonp&callback=callback&track_id=" + 
               currentSongObj.songId;
-    xhttp.onreadystatechange = function(){
+    xhttp2.onreadystatechange = function(){
 
         if(this.readyState == 4 && this.status == 200)
         {
@@ -110,12 +110,12 @@ songsObjTest.prototype.setSongLyrics = function(){
             respons = respons.replace(");","");
             var lyricRespons = JSON.parse(respons);
             //currentSongObj.lyrics = lyricRespons.message.body.lyrics.lyrics_body;
-            console.log(lyricRespons);
+            console.log("lyric " + lyricRespons);
         }
     };
 
-    xhttp.open("GET",jsonURL,false);
-    xhttp.send();
+    xhttp2.open("GET",jsonURL,false);
+    xhttp2.send();
 };
 
 songsObjTest.prototype.apiReturn = function(){
