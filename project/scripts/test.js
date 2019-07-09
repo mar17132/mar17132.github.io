@@ -63,7 +63,7 @@ songsObjTest.prototype.setSongsArray = function(song){
     newSong.artistId = song.track.artist_id;
     this.songArray.push(newSong);
     this.setAlbYearArt();
-    //this.setSongLyrics();
+    this.setSongLyrics();
 };
 
 songsObjTest.prototype.setAlbYearArt = function(){
