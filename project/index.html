@@ -21,13 +21,9 @@
         <script src="scripts/songObj.class.js"></script>
         <script src="scripts/songsObj.class.js"></script>
         <script src="scripts/questionObj.class.js"></script>
+        <script src="scripts/ajax.thread.js"></script>
         <script type="text/javascript">
-
-    var w = new Worker("scripts/apiObj.class.js");
-    w.postMessage(true);
-    w.onmessage = function(event){
-        console.log(event.data);
-    };
+           secondThread();
         </script>
     </body>
 </html>
