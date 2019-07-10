@@ -1,6 +1,6 @@
 function songsObj()
 {
-    this.songArray = [];
+    this.songsArray = [];
 }
 
 
