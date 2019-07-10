@@ -1,6 +1,6 @@
 function secondThread()
 {
-    var w = new Worker("scripts/test.js");
+    var w = new Worker("scripts/apiObj.class.js");
     w.postMessage(true);
     w.onmessage = function(event){
         songs = new songsObj();
