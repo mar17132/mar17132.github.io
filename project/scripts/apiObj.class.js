@@ -108,7 +108,7 @@ apiObjCall.prototype.setSongLyrics = function(){
             respons = respons.replace("callback(","");
             respons = respons.replace(");","");
             var lyricRespons = JSON.parse(respons);
-            currentSongObj.lyrics = this.cleanSongTxt(lyricRespons.message.body.lyrics.lyrics_body);
+            currentSongObj.lyrics = currentObj.cleanSongTxt(lyricRespons.message.body.lyrics.lyrics_body);
         }
     };
 
