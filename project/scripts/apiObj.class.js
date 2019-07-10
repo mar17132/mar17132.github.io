@@ -108,7 +108,7 @@ apiObjCall.prototype.setSongLyrics = function(){
             respons = respons.replace("callback(","");
             respons = respons.replace(");","");
             var lyricRespons = JSON.parse(respons);
-            currentSongObj.lyrics = lyricRespons.message.body.lyrics.lyrics_body;
+            currentSongObj.lyrics = this.cleanSongTxt(lyricRespons.message.body.lyrics.lyrics_body);
         }
     };
 
@@ -124,6 +124,18 @@ apiObjCall.prototype.apiReturn = function(){
         if(this.responsObj[i].track.explicit == 0)
         this.setSongsArray(this.responsObj[i]);
     }
+};
+
+apiObjCall.prototype.cleanSongTxt = function(songText){
+    lookText = "******* This Lyrics is NOT for Commercial use *******";
+    lookTxtLoc = songText.indexOf(lookText);
+
+    if(lookTxtLoc != -1)
+    {
+       songText = songText.substring(0,lookTxtLoc);
+    }
+
+    return songText;
 };
 
 
