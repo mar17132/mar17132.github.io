@@ -71,9 +71,9 @@ apiObjCall.prototype.setAlbYearArt = function(){
     currentObj = this;
     currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
     xhttp = new XMLHttpRequest();
-    jsonURL = currentObj.apiUrl + currentObj.albumEndpoint + "?apikey=" + 
+    jsonURL = currentObj.apiUrl + currentObj.albumEndpoint + "?apikey=" +
               currentObj.apikey +
-              "&format=jsonp&callback=callback&album_id=" + 
+              "&format=jsonp&callback=callback&album_id=" +
               currentSongObj.albumId;
     xhttp.onreadystatechange = function(){
 
@@ -96,9 +96,9 @@ apiObjCall.prototype.setSongLyrics = function(){
     currentObj = this;
     currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
     xhttp2 = new XMLHttpRequest();
-    jsonURL = currentObj.apiUrl + currentObj.lyricEndpoint + "?apikey=" + 
+    jsonURL = currentObj.apiUrl + currentObj.lyricEndpoint + "?apikey=" +
               currentObj.apikey +
-              "&format=jsonp&callback=callback&track_id=" + 
+              "&format=jsonp&callback=callback&track_id=" +
               currentSongObj.songId;
     xhttp2.onreadystatechange = function(){
 
