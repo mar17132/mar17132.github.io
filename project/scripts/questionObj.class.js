@@ -15,13 +15,11 @@ questionObj.prototype.getSongAnwsers = function(){
     }
 };
 
-questionObj.prototype.setSongsObj = function(songsArray){
-    this.songsObj = songsArray;
+questionObj.prototype.setSongsObj = function(songs){
+    this.songsObj = songs;
 };
 
 questionObj.prototype.setQuestionAnwser = function(){
     this.songsObj.getSong(this.numberAnwsers).setAnwser(true);
 };
-
-
 
