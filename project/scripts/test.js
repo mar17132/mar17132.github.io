@@ -1,4 +1,4 @@
-function songsObjTest()
+function apiObjCall()
 {
     this.songArray = [];
     this.totalNumSongs = 200;
@@ -9,7 +9,7 @@ function songsObjTest()
     this.trackEndpoint = "chart.tracks.get";
     this.albumEndpoint = "album.get";
     this.lyricEndpoint = "track.lyrics.get";
-    //this.lyricEndpoint = "track.snippet.get";
+
     this.songObj = function() {
         this.artist = "";
     this.artistId = null;
@@ -24,7 +24,7 @@ function songsObjTest()
 }
 
 
-songsObjTest.prototype.getSongsLoop = function(){
+apiObjCall.prototype.getSongsLoop = function(){
     //https://api.musixmatch.com/ws/1.1/chart.tracks.get?
     //apikey=c51c885aa28518b28abb7fd7b889fd13&country=us&
     //page=1&page_size=100&f_has_lyrics=1
@@ -48,13 +48,13 @@ songsObjTest.prototype.getSongsLoop = function(){
 };
 
 
-songsObjTest.prototype.setResponsObj = function(respons){
+apiObjCall.prototype.setResponsObj = function(respons){
     respons = respons.replace("callback(","");
     respons = respons.replace(");","");
     this.responsObj = JSON.parse(respons).message.body.track_list;
 };
 
-songsObjTest.prototype.setSongsArray = function(song){
+apiObjCall.prototype.setSongsArray = function(song){
     var newSong = new this.songObj();
     newSong.album = song.track.album_name;
     newSong.albumId = song.track.album_id;
@@ -67,7 +67,7 @@ songsObjTest.prototype.setSongsArray = function(song){
     this.setSongLyrics();
 };
 
-songsObjTest.prototype.setAlbYearArt = function(){
+apiObjCall.prototype.setAlbYearArt = function(){
     currentObj = this;
     currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
     xhttp = new XMLHttpRequest();
@@ -92,11 +92,10 @@ songsObjTest.prototype.setAlbYearArt = function(){
     xhttp.send();
 };
 
-songsObjTest.prototype.setSongLyrics = function(){
+apiObjCall.prototype.setSongLyrics = function(){
     currentObj = this;
     currentSongObj = currentObj.songArray[currentObj.songArray.length - 1];
     xhttp2 = new XMLHttpRequest();
-    //https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=164504273&apikey=c51c885aa28518b28abb7fd7b889fd13
     jsonURL = currentObj.apiUrl + currentObj.lyricEndpoint + "?apikey=" + 
               currentObj.apikey +
               "&format=jsonp&callback=callback&track_id=" + 
@@ -110,7 +109,6 @@ songsObjTest.prototype.setSongLyrics = function(){
             respons = respons.replace(");","");
             var lyricRespons = JSON.parse(respons);
             currentSongObj.lyrics = lyricRespons.message.body.lyrics.lyrics_body;
-            //console.log("lyric " + lyricRespons);
         }
     };
 
@@ -118,7 +116,7 @@ songsObjTest.prototype.setSongLyrics = function(){
     xhttp2.send();
 };
 
-songsObjTest.prototype.apiReturn = function(){
+apiObjCall.prototype.apiReturn = function(){
     //filter by track.explicit
 
     for(i = 0; i < this.responsObj.length; i++)
@@ -128,17 +126,10 @@ songsObjTest.prototype.apiReturn = function(){
     }
 };
 
-songsObjTest.prototype.getRandomNum = function(limit = 1){
-
-    return Math.floor(Math.random() * limit);
-};
-
 
 onmessage = function(event){
-var test = new songsObjTest();
-
-test.getSongsLoop();
-
-this.postMessage(test.songArray);
-
+    var songsApiCall = new apiObjCall();
+    songsApiCall.getSongsLoop();
+    this.postMessage(songsApiCall.songArray);
 };
+
