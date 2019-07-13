@@ -22,8 +22,42 @@ questionObj.prototype.getSongAnwsers = function(){
 
         while(this.questionArray.length != this.numberAnwsers)
         {
-            this.questionArray[i].push();
-            this.questionArray[i].push();
+            artist = this.anwserArray[this.songsObj.getRandomNum(
+                                      this.anwserArray.length)];
+            toAdd = false;
+
+            for(j = 0; j < this.questionArray.length; j++)
+            {
+                if(typeof(this.questionArray[j]) == "songObj")
+                {
+                    if(artist != this.questionArray[j].getArtist())
+                    {
+                        toAdd = true;
+                    }
+                    else
+                    {
+                        toAdd = false;
+                        break;
+                    }
+                }
+                else
+                {
+                    if(artist != this.questionArray[j])
+                    {
+                        toAdd = true;
+                    }
+                    else
+                    {
+                        toAdd = false;
+                        break;
+                    }
+                }
+            }
+
+            if(toAdd)
+            {
+              this.questionArray[i].push(artist);
+            }
         }
 
     }
