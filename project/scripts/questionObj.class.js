@@ -18,7 +18,7 @@ questionObj.prototype.getSongAnwsers = function(){
             song = this.songsObj.getSongRandom(this.songsObj.getArraySize());
         }
 
-        this.questionArray[i].push(song);
+        this.questionArray.push(song);
 
         while(this.questionArray.length != this.numberAnwsers)
         {
