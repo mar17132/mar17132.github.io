@@ -14,6 +14,7 @@ function secondThread()
                 songs.createSongsArray(event.data);
                 myQuestions = new questionObj();
                 myQuestions.setSongsObj(songs);
+                myQuestions.getSongAnwsers();
                 console.log(myQuestions);
             };
         }
