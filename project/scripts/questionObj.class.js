@@ -56,7 +56,7 @@ questionObj.prototype.getSongAnwsers = function(){
 
             if(toAdd)
             {
-              this.questionArray[i].push(artist);
+              this.questionArray.push(artist);
             }
         }
 
