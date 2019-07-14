@@ -11,6 +11,7 @@ function questionObj()
 questionObj.prototype.getSongAnwsers = function(){
     for(i = 0; i < this.numberOfQuestion; i++)
     {
+        this.questionArray[i] =[];
         song = this.songsObj.getSongRandom(this.songsObj.getArraySize());
 
         while(!this.setQuestionAnwser(song))
@@ -18,19 +19,19 @@ questionObj.prototype.getSongAnwsers = function(){
             song = this.songsObj.getSongRandom(this.songsObj.getArraySize());
         }
 
-        this.questionArray.push(song);
+        this.questionArray[i].push(song);
 
-        while(this.questionArray.length < this.numberAnwsers)
+        while(this.questionArray[i].length < this.numberAnwsers)
         {
             artist = this.anwserArray[this.songsObj.getRandomNum(
                                       this.anwserArray.length)];
             toAdd = false;
 
-            for(j = 0; j < this.questionArray.length; j++)
+            for(j = 0; j < this.questionArray[i].length; j++)
             {
-                if(typeof(this.questionArray[j]) == "object")
+                if(typeof(this.questionArray[i][j]) == "object")
                 {
-                    if(artist != this.questionArray[j].getArtist())
+                    if(artist != this.questionArray[i][j].getArtist())
                     {
                         toAdd = true;
                     }
@@ -42,7 +43,7 @@ questionObj.prototype.getSongAnwsers = function(){
                 }
                 else
                 {
-                    if(artist != this.questionArray[j])
+                    if(artist != this.questionArray[i][j])
                     {
                         toAdd = true;
                     }
@@ -56,7 +57,7 @@ questionObj.prototype.getSongAnwsers = function(){
 
             if(toAdd)
             {
-              this.questionArray.push(artist);
+              this.questionArray[i].push(artist);
             }
         }
 
