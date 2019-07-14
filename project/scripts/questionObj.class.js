@@ -68,10 +68,10 @@ questionObj.prototype.setSongsObj = function(songs){
     this.setAnwserArray();
 };
 
-questionObj.prototype.setQuestionAnwser = function(){
-    if(song.hasBeenAnwser() == false)
+questionObj.prototype.setQuestionAnwser = function(ObjSong){
+    if(ObjSong.hasBeenAnwser() == false)
     {
-        this.songsObj.getSong(this.numberAnwsers).setAnwser(true);
+        ObjSong.setAnwser(true);
         return true;
     }
     else
