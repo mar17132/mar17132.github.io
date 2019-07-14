@@ -20,7 +20,7 @@ questionObj.prototype.getSongAnwsers = function(){
 
         this.questionArray.push(song);
 
-        while(this.questionArray.length != this.numberAnwsers)
+        while(this.questionArray.length < this.numberAnwsers)
         {
             artist = this.anwserArray[this.songsObj.getRandomNum(
                                       this.anwserArray.length)];
@@ -28,7 +28,6 @@ questionObj.prototype.getSongAnwsers = function(){
 
             for(j = 0; j < this.questionArray.length; j++)
             {
-                console.log(typeof(this.questionArray[j]));
                 if(typeof(this.questionArray[j]) == "object")
                 {
                     if(artist != this.questionArray[j].getArtist())
