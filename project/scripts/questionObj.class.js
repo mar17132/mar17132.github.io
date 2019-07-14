@@ -29,7 +29,7 @@ questionObj.prototype.getSongAnwsers = function(){
             for(j = 0; j < this.questionArray.length; j++)
             {
                 console.log(typeof(this.questionArray[j]));
-                if(typeof(this.questionArray[j]) == "songObj")
+                if(typeof(this.questionArray[j]) == "object")
                 {
                     if(artist != this.questionArray[j].getArtist())
                     {
