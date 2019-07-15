@@ -127,7 +127,7 @@ questionObj.prototype.allBeenAnwsers = function(){
 
     for(i = 0; i < arrayLength; i++)
     {
-        if(this.songsObj.hasBeenAnwser())
+        if(this.songsObj.getSong(i).hasBeenAnwser())
         {
             countBeen++;
         }
@@ -149,7 +149,7 @@ questionObj.prototype.resetBeenAnwsers = function(){
 
     for(i = 0; i < arrayLength; i++)
     {
-        this.songsObj.setBeenAnwser(false);
+        this.songsObj.getSong(i).setBeenAnwser(false);
     }
 
 };
