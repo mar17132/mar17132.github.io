@@ -100,7 +100,10 @@ questionObj.prototype.getNumberQuestion = function(){
 questionObj.prototype.setAnwserArray = function(){
     for(i = 0; i < this.songsObj.getArraySize(); i++)
     {
-        this.anwserArray[i] = this.songsObj.getSong(i).getArtist();
+        if(this.anwserArray.indexOf(this.songsObj.getSong(i).getArtist()) == -1)
+        {
+            this.anwserArray.pop(this.songsObj.getSong(i).getArtist());
+        }
     }
 };
 
