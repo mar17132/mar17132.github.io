@@ -9,58 +9,68 @@ function questionObj()
 }
 
 questionObj.prototype.getSongAnwsers = function(){
-    for(i = 0; i < this.numberOfQuestion; i++)
+
+
+    if(!this.allBeenAnwsers())
     {
-        this.questionArray[i] =[];
-        song = this.songsObj.getSongRandom(this.songsObj.getArraySize());
-
-        while(!this.setQuestionAnwser(song))
+        for(i = 0; i < this.numberOfQuestion; i++)
         {
+            this.questionArray[i] =[];
             song = this.songsObj.getSongRandom(this.songsObj.getArraySize());
-        }
 
-        this.questionArray[i].push(song);
-
-        while(this.questionArray[i].length < this.numberAnwsers)
-        {
-            artist = this.anwserArray[this.songsObj.getRandomNum(
-                                      this.anwserArray.length)];
-            toAdd = false;
-
-            for(j = 0; j < this.questionArray[i].length; j++)
+            while(!this.setQuestionAnwser(song))
             {
-                if(typeof(this.questionArray[i][j]) == "object")
+                song = this.songsObj.getSongRandom(this.songsObj.getArraySize());
+            }
+
+            this.questionArray[i].push(song);
+
+            while(this.questionArray[i].length < this.numberAnwsers)
+            {
+                artist = this.anwserArray[this.songsObj.getRandomNum(
+                                          this.anwserArray.length)];
+                toAdd = false;
+
+                for(j = 0; j < this.questionArray[i].length; j++)
                 {
-                    if(artist != this.questionArray[i][j].getArtist())
+                    if(typeof(this.questionArray[i][j]) == "object")
                     {
-                        toAdd = true;
+                        if(artist != this.questionArray[i][j].getArtist())
+                        {
+                            toAdd = true;
+                        }
+                        else
+                        {
+                            toAdd = false;
+                            break;
+                        }
                     }
                     else
                     {
-                        toAdd = false;
-                        break;
+                        if(artist != this.questionArray[i][j])
+                        {
+                            toAdd = true;
+                        }
+                        else
+                        {
+                            toAdd = false;
+                            break;
+                        }
                     }
                 }
-                else
+
+                if(toAdd)
                 {
-                    if(artist != this.questionArray[i][j])
-                    {
-                        toAdd = true;
-                    }
-                    else
-                    {
-                        toAdd = false;
-                        break;
-                    }
+                  this.questionArray[i].push(artist);
                 }
             }
 
-            if(toAdd)
-            {
-              this.questionArray[i].push(artist);
-            }
         }
-
+    }
+    else
+    {
+        this.resetBeenAnwsers();
+        this.getSongAnwsers();
     }
 };
 
@@ -106,5 +116,41 @@ questionObj.prototype.setAnwserArray = function(){
             this.anwserArray.push(this.songsObj.getSong(i).getArtist());
         }
     }
+};
+
+
+questionObj.prototype.allBeenAnwsers = function(){
+
+    var returnVal = false;
+    var countBeen = 0;
+    var arrayLength = this.songsObj.getArraySize();
+
+    for(i = 0; i < arrayLength; i++)
+    {
+        if(this.songsObj.hasBeenAnwser())
+        {
+            countBeen++;
+        }
+    }
+
+    if(countBeen == (arrayLength - 1))
+    {
+        returnVal = true;
+    }
+
+    return returnVal;
+
+};
+
+
+questionObj.prototype.resetBeenAnwsers = function(){
+
+    var arrayLength = this.songsObj.getArraySize();
+
+    for(i = 0; i < arrayLength; i++)
+    {
+        this.songsObj.setBeenAnwser(false);
+    }
+
 };
 
