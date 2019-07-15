@@ -102,7 +102,7 @@ questionObj.prototype.setAnwserArray = function(){
     {
         if(this.anwserArray.indexOf(this.songsObj.getSong(i).getArtist()) == -1)
         {
-            this.anwserArray.pop(this.songsObj.getSong(i).getArtist());
+            this.anwserArray.push(this.songsObj.getSong(i).getArtist());
         }
     }
 };
