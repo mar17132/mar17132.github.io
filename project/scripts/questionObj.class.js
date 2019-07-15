@@ -133,7 +133,7 @@ questionObj.prototype.allBeenAnwsers = function(){
         }
     }
 
-    if(countBeen == (arrayLength - 1))
+    if(countBeen == (arrayLength - 1) || (arrayLength - countBeen) < this.numberAnwsers)
     {
         returnVal = true;
     }
