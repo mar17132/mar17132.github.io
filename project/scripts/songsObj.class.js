@@ -20,8 +20,8 @@ songsObj.prototype.getArraySize = function(){
 };
 
 
-songsObj.prototype.getSongRandom = function(){
-    return this.songsArray[this.getRandomNum()];
+songsObj.prototype.getSongRandom = function(ranLimit){
+    return this.songsArray[this.getRandomNum(ranLimit)];
 };
 
 

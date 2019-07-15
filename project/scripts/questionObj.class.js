@@ -73,6 +73,7 @@ questionObj.prototype.setQuestionAnwser = function(ObjSong){
     if(ObjSong.hasBeenAnwser() == false)
     {
         ObjSong.setAnwser(true);
+        ObjSong.setBeenAnwser(true);
         return true;
     }
     else
