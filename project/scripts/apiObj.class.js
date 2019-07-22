@@ -38,8 +38,17 @@ apiObjCall.prototype.getSongsLoop = function(){
 
         if(this.readyState == 4 && this.status == 200)
         {
-            currentObj.setResponsObj(this.responseText);
-            currentObj.apiReturn();
+            console.log(this.responseText);
+            console.log(this.responseText.message.header.status_code);
+            if(this.responseText.message.header.status_code == 200)
+            {
+                currentObj.setResponsObj(this.responseText);
+                currentObj.apiReturn();
+            }
+            else
+            {
+                postMessage({"status":"error","data":"Error: API Key"});
+            }
         }
     };
 
@@ -123,7 +132,12 @@ apiObjCall.prototype.apiReturn = function(){
     for(i = 0; i < this.responsObj.length; i++)
     {
         if(this.responsObj[i].track.explicit == 0)
-        this.setSongsArray(this.responsObj[i]);
+        {
+            this.setSongsArray(this.responsObj[i]);
+        }
+
+        postMessage({"status":"percent",
+                     "data":(i / this.responsObj.length) * 100});
     }
 };
 
@@ -143,5 +157,5 @@ apiObjCall.prototype.cleanSongTxt = function(songText){
 onmessage = function(event){
     var songsApiCall = new apiObjCall();
     songsApiCall.getSongsLoop();
-    this.postMessage(songsApiCall.songArray);
+    this.postMessage({"status":"done","data":songsApiCall.songArray});
 };

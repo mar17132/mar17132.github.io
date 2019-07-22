@@ -94,10 +94,12 @@ function sumbitAnswer(num) {
 }
 
 function endGame() {
-    loadPage('results')
-    document.getElementById('numCorrect').innerHTML = siteUser.getNumCorrect()
-    document.getElementById('numIncorrect').innerHTML = numQuestions
-    numQuestions = 5
+    loadPage('results');
+    document.getElementById('numCorrect').innerHTML = siteUser.getNumCorrect();
+    document.getElementById('numIncorrect').innerHTML = numQuestions;
+    numQuestions = 5;
+    siteUser.getPercentRight();
+    siteUser.getFastestTime();
 }
 
 function cancelQuit() {
@@ -144,7 +146,11 @@ function getNextQuestion() {
     timer.onTick(format)
 
     function format(seconds) {
-        if (forQuestionNumber != currentQuestion) return
+        if (forQuestionNumber != currentQuestion)
+        {
+            siteUser.setFastestTime(15 - time);
+            return;
+        }
         time = time - 1
         seconds = seconds < 10 ? "0" + seconds : seconds
         tick.play()
