@@ -38,6 +38,8 @@ apiObjCall.prototype.getSongsLoop = function(){
 
         if(this.readyState == 4 && this.status == 200)
         {
+            console.log(JSON.parse(cleanResponsTxt(this.responseText))
+               .message.header.status_code);
             if(JSON.parse(cleanResponsTxt(this.responseText))
                .message.header.status_code == 200)
             {
