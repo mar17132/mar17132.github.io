@@ -1,5 +1,3 @@
-
-
 function userObj()
 {
     this.numCorrect = 0;

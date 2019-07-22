@@ -1,29 +1,44 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Who Sang That?</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <div id="app-loader">
+        <!-- Intentionally left blank -->
+    </div>
+    <div id="soundEffects">
+        <audio src="assets/Tick-DeepFrozenApps-397275646.mp3" id="tick" type="audio/mpeg"></audio>
+        <audio src="assets/Woosh-Mark_DiAngelo-4778593.wav" id="whoosh" type="audio/mpeg"></audio>
 
-<html lang='en' >
-    <head>
-    <meta charset='utf-8' >
-        <title>
-            project
-        </title>
-        <link href="styles/project.css" rel="stylesheet" />
-        <style type="text/css">
-            .tracker{
-                display: none;
-            }
-        </style>
-    </head>
-    <body>
-      <img class="tracker" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuXW">
+    </div>
 
-        <script src="scripts/variables.js"></script>
-        <script src="scripts/userObj.class.js"></script>
-        <script src="scripts/songObj.class.js"></script>
-        <script src="scripts/songsObj.class.js"></script>
-        <script src="scripts/questionObj.class.js"></script>
-        <script src="scripts/ajax.thread.js"></script>
-        <script type="text/javascript">
-           secondThread();
-        </script>
-    </body>
+    <script src="scripts/timer.js" charset="utf-8"></script>
+    <script src="scripts/variables.js" charset="utf-8"></script>
+    <script src="scripts/userObj.class.js" charset="utf-8"></script>
+    <script src="scripts/songObj.class.js" charset="utf-8"></script>
+    <script src="scripts/songsObj.class.js" charset="utf-8"></script>
+    <script src="scripts/questionObj.class.js" charset="utf-8"></script>
+    <script src="scripts/ajax.thread.js" charset="utf-8"></script>
+    <script src="scripts/content.js" charset="utf-8"></script>
+    <script src="scripts/controller.js" charset="utf-8"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+            .then(swReg => {
+              console.log('Service Worker is registered', swReg);
+            })
+            .catch(err => {
+              console.error('Service Worker Error', err);
+            });
+          });
+        }
+      </script>
+</body>
 </html>

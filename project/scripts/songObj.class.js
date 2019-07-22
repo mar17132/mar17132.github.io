@@ -1,5 +1,3 @@
-
-
 function songObj()
 {
     this.artist = "";
@@ -115,5 +113,3 @@ songObj.prototype.setAnwser = function(anwser){
 songObj.prototype.setBeenAnwser = function(beenAnwser){
     this.beenAnwser = beenAnwser;
 };
-
-

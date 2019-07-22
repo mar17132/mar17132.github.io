@@ -1,0 +1,12 @@
+https://api.musixmatch.com/ws/1.1/music.genres.get?apikey=c51c885aa28518b28abb7fd7b889fd13&country=us
+
+
+https://api.musixmatch.com/ws/1.1/track.search?apikey=c51c885aa28518b28abb7fd7b889fd13&f_music_genre_id=6
+
+https://api.musixmatch.com/ws/1.1/chart.tracks.get?apikey=c51c885aa28518b28abb7fd7b889fd13&country=usa&page=1&page_size=100&f_has_lyrics=1
+
+
+{"music_genre_id":1210,"music_genre_parent_id":2,"music_genre_name":"Acoustic Blues","music_genre_name_extended":"Blues \/ Acoustic Blues","music_genre_vanity":"Blues-Acoustic-Blues"}
+
+https://developer.musixmatch.com/
+

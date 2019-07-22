@@ -47,5 +47,3 @@ songsObj.prototype.createSongsArray = function(objArray){
         
     }
 };
-
-
