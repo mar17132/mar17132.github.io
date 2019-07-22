@@ -38,9 +38,8 @@ apiObjCall.prototype.getSongsLoop = function(){
 
         if(this.readyState == 4 && this.status == 200)
         {
-            console.log(this.responseText);
-            console.log(this.responseText.message.header.status_code);
-            if(this.responseText.message.header.status_code == 200)
+            if(JSON.parse(cleanResponsTxt(this.responseText))
+               .message.header.status_code == 200)
             {
                 currentObj.setResponsObj(this.responseText);
                 currentObj.apiReturn();
@@ -153,9 +152,16 @@ apiObjCall.prototype.cleanSongTxt = function(songText){
     return songText;
 };
 
+apiObjCall.prototype.cleanResponsTxt = function(responsTxt){
+    responsTxt = responsTxt.replace("callback(","");
+    responsTxt = responsTxt.replace(");","");
+    return responsTxt;
+};
 
 onmessage = function(event){
     var songsApiCall = new apiObjCall();
     songsApiCall.getSongsLoop();
     this.postMessage({"status":"done","data":songsApiCall.songArray});
 };
+
+
