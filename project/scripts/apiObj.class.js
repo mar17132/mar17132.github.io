@@ -38,14 +38,14 @@ apiObjCall.prototype.getSongsLoop = function(){
 
         if(this.readyState == 4 && this.status == 200)
         {
-            if(this.headerStatus(this.responseText) == 200)
+            if(currentObj.headerStatus(this.responseText) == 200)
             {
                 currentObj.setResponsObj(this.responseText);
                 currentObj.apiReturn();
             }
             else
             {
-                this.postMessage({"status":"error","data":"Error: API Key"});
+                postMessage({"status":"error","data":"Error: API Key"});
             }
         }
     };
