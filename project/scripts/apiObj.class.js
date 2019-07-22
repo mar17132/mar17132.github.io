@@ -45,7 +45,7 @@ apiObjCall.prototype.getSongsLoop = function(){
             }
             else
             {
-                postMessage({"status":"error","data":"Error: API Key"});
+                this.postMessage({"status":"error","data":"Error: API Key"});
             }
         }
     };
