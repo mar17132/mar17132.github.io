@@ -38,10 +38,7 @@ apiObjCall.prototype.getSongsLoop = function(){
 
         if(this.readyState == 4 && this.status == 200)
         {
-            console.log(JSON.parse(cleanResponsTxt(this.responseText))
-               .message.header.status_code);
-            if(JSON.parse(cleanResponsTxt(this.responseText))
-               .message.header.status_code == 200)
+            if(this.headerStatus(this.responseText) == 200)
             {
                 currentObj.setResponsObj(this.responseText);
                 currentObj.apiReturn();
@@ -154,10 +151,11 @@ apiObjCall.prototype.cleanSongTxt = function(songText){
     return songText;
 };
 
-apiObjCall.prototype.cleanResponsTxt = function(responsTxt){
+apiObjCall.prototype.headerStatus = function(responsTxt){
     responsTxt = responsTxt.replace("callback(","");
     responsTxt = responsTxt.replace(");","");
-    return responsTxt;
+    console.log(JSON.parse(responsTxt).message.header.status_code);
+    return JSON.parse(responsTxt).message.header.status_code;
 };
 
 onmessage = function(event){
