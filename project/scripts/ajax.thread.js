@@ -16,13 +16,13 @@ function secondThread()
                     myQuestions = new questionObj();
                     myQuestions.setSongsObj(songs);
                     hasLoaded = true;
-                    console.log('has loaded');
                     updateStartButton();
                     w.terminate();
                 }
                 else if(event.data.status == "percent")
                 {
                     precentLoaded = event.data.data;
+                    console.log.(precentLoaded + "%");
                 }
                 else
                 {

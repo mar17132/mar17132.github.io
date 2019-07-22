@@ -154,7 +154,6 @@ apiObjCall.prototype.cleanSongTxt = function(songText){
 apiObjCall.prototype.headerStatus = function(responsTxt){
     responsTxt = responsTxt.replace("callback(","");
     responsTxt = responsTxt.replace(");","");
-    console.log(JSON.parse(responsTxt).message.header.status_code);
     return JSON.parse(responsTxt).message.header.status_code;
 };
 
