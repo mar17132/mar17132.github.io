@@ -22,7 +22,7 @@ function secondThread()
                 else if(event.data.status == "percent")
                 {
                     precentLoaded = event.data.data;
-                    console.log.(precentLoaded + "%");
+                    console.log(precentLoaded + "%");
                 }
                 else
                 {
