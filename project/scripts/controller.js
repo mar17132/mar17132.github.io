@@ -150,7 +150,9 @@ function getNextQuestion() {
         {
             if(document.getElementById('answerStatus').innerHTML.toLowerCase()
                == "correct")
-            siteUser.setFastestTime(15 - time);
+            {
+                siteUser.setFastestTime(15 - time);
+            }
             return;
         }
         time = time - 1
