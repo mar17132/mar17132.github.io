@@ -15,6 +15,7 @@ function secondThread()
                     songs.createSongsArray(event.data.data);
                     myQuestions = new questionObj();
                     myQuestions.setSongsObj(songs);
+                    precentLoaded = 100;
                     hasLoaded = true;
                     updateStartButton();
                     w.terminate();
@@ -22,7 +23,6 @@ function secondThread()
                 else if(event.data.status == "percent")
                 {
                     precentLoaded = event.data.data;
-                    console.log(precentLoaded + "%");
                 }
                 else
                 {

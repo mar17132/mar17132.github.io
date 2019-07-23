@@ -148,6 +148,7 @@ function getNextQuestion() {
     function format(seconds) {
         if (forQuestionNumber != currentQuestion)
         {
+            if(document.getElementById('answerStatus').innerHTML == "correct")
             siteUser.setFastestTime(15 - time);
             return;
         }
