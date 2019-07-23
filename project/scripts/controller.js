@@ -26,10 +26,11 @@ function loadPage(page) {
         updateStartButton()
     }
     if (page == 'summary') {
-        let summaryQuestionReference = currentQuestion -1
-        document.getElementById('songTitle').innerHTML = myQuestions.getQuestion(summaryQuestionReference)[0].getSong()
-        document.getElementById('songYear').innerHTML = myQuestions.getQuestion(summaryQuestionReference)[0].getYear()
-        document.getElementById('songArtist').innerHTML = myQuestions.getQuestion(summaryQuestionReference)[0].getArtist()
+        let summaryQuestionReference = currentQuestion - 1;
+        questionAnswerObj = myQuestions.getQuestion(summaryQuestionReference)[0];
+        document.getElementById('songTitle').innerHTML = questionAnswerObj.getSong();
+        document.getElementById('songYear').innerHTML = questionAnswerObj.getYear();
+        document.getElementById('songArtist').innerHTML = questionAnswerObj.getArtist();
         if (currentQuestion >= numQuestions) {
             document.getElementById('nextQuestion').innerHTML = 'View Results'
         }
@@ -82,7 +83,7 @@ function sumbitAnswer(num) {
         }
     }
     let answerWas = 'INCORRECT'
-    if (!!num && document.getElementById('answer' + num).innerHTML.replace('&amp;', '&') == myQuestions.getQuestion(currentQuestion)[0].getArtist()) {
+    if (!num && document.getElementById('answer' + num).innerHTML.replace('&amp;', '&') == myQuestions.getQuestion(currentQuestion)[0].getArtist()) {
         answerWas = 'CORRECT'
         siteUser.addNumCorrect()
     } else {
