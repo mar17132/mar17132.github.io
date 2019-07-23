@@ -83,11 +83,14 @@ function sumbitAnswer(num) {
         }
     }
     let answerWas = 'INCORRECT'
-    if (!num && document.getElementById('answer' + num).innerHTML.replace('&amp;', '&') == myQuestions.getQuestion(currentQuestion)[0].getArtist()) {
-        answerWas = 'CORRECT'
-        siteUser.addNumCorrect()
-    } else {
-        siteUser.addNumIncorrect()
+    if(num >= 1 && num <= 3)
+    {
+        if (document.getElementById('answer' + num).innerHTML.replace('&amp;', '&') == myQuestions.getQuestion(currentQuestion)[0].getArtist()) {
+            answerWas = 'CORRECT'
+            siteUser.addNumCorrect()
+        } else {
+            siteUser.addNumIncorrect()
+        }
     }
     document.getElementById('answerStatus').innerHTML = answerWas
     console.log('next question: ' + currentQuestion)
